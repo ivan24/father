@@ -3,6 +3,9 @@ body {
     height: 100%;
     /* The html and body elements cannot have any padding or margin. */
 }
+a.logo{
+    color:black;
+}
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -10,7 +13,7 @@ body {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -90px;
+    margin: 0 auto -80px;
 }
 .about {
     margin: 60px 0;
@@ -27,7 +30,8 @@ body {
 /* Set the fixed height of the footer here */
 #push,
 #footer {
-    height: 90px;
+    clear:both;
+    height: 80px;
 }
 #footer {
     background-color: #f5f5f5;
@@ -51,15 +55,8 @@ body {
 
 .container {
     width: auto;
-    max-width: 980px;
+    max-width: 680px;
 }
 .container .credit {
     margin: 20px 0;
-}
-/* Supporting marketing content */
-.marketing {
-    margin: 60px 0;
-}
-.marketing p + h4 {
-    margin-top: 28px;
 }

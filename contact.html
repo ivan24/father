@@ -18,11 +18,6 @@
     <script src="./assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="./assets/ico/favicon.png">
     <!-- Maps -->
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -31,14 +26,40 @@
     </script>
     <script type="text/javascript">
         function initialize() {
+            var paseka = new google.maps.LatLng(54.375883, 26.382510);
+            var center = new google.maps.LatLng(54.387554,26.455889);
+            var marker;
+            var map;
+
             var mapOptions = {
-                center: new google.maps.LatLng(54.375883, 26.382594),
+                center: center,
                 zoom: 11,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.HYBRID
             };
-            var map = new google.maps.Map(document.getElementById("map_canvas"),
+            map = new google.maps.Map(document.getElementById("map_canvas"),
                     mapOptions);
+
+            var contentString = '<div>Описание маршрута </div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable:true,
+                animation: google.maps.Animation.DROP,
+                position: paseka,
+
+                title:"Пасека Орешкова Сергея Васильевича"
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+            });
         }
+
+
     </script>
 </head>
 

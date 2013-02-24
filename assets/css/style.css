@@ -74,3 +74,23 @@ h1.title{
 h3{
     font-size: 17.5px;
 }
+
+.cost:hover {
+    color: #00bb00;
+}
+
+p.cost{
+    text-align: right;
+}
+.offers li {
+    list-style-type: none;
+}
+.offer{
+    color: #800404;
+    font-weight: bold;
+}
+.cost{
+    width: 30px;
+    color: #428803;
+    font-weight: bold;
+}

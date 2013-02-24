@@ -16,7 +16,7 @@ a.logo{
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -80px;
+    margin: 0 auto -100px;
 }
 .about {
     margin: 60px 0;
@@ -34,7 +34,7 @@ a.logo{
 #push,
 #footer {
     clear:both;
-    height: 80px;
+    height: 100px;
 }
 #footer {
     background-color: #f5f5f5;
@@ -49,8 +49,15 @@ a.logo{
         padding-right: 20px;
     }
 }
-
-
+.socialbutton{
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 140px;
+}
+.socialbutton div{
+    padding-top: 10px;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */

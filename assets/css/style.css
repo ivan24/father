@@ -50,14 +50,9 @@ a.logo{
     }
 }
 .socialbutton{
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    width: 140px;
+    margin-bottom: 30px;
 }
-.socialbutton div{
-    padding-top: 10px;
-}
+
 
 /* Custom page CSS
 -------------------------------------------------- */

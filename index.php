@@ -64,7 +64,7 @@
         <div class="masthead">
             <ul class="nav nav-pills pull-right">
                 <li class="active"><a href="/">Главная</a></li>
-                <li><a href="./contact.html">Контакты</a></li>
+                <li><a href="contact.php">Контакты</a></li>
             </ul>
             <h3 class="muted"><a class='logo' href="/">Perga.by</a></h3>
         </div>

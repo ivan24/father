@@ -4,12 +4,15 @@ body {
     /* The html and body elements cannot have any padding or margin. */
 
 }
-a.logo{
-    color:black;
+
+a.logo {
+    color: black;
 }
-#bee{
-    background: url('../images/bee.gif') no-repeat;
+
+#bee {
+    background: url('../img/bee.gif') no-repeat;
 }
+
 /* Wrapper for page content to push down footer */
 #wrap {
     min-height: 100%;
@@ -18,24 +21,29 @@ a.logo{
     /* Negative indent footer by it's height */
     margin: 0 auto -100px;
 }
+
 .about {
     margin: 60px 0;
     text-align: center;
 }
+
 .about h1 {
     font-size: 72px;
     line-height: 1;
 }
+
 .about .btn {
     font-size: 21px;
     padding: 14px 24px;
 }
+
 /* Set the fixed height of the footer here */
 #push,
 #footer {
-    clear:both;
+    clear: both;
     height: 100px;
 }
+
 #footer {
     background-color: #f5f5f5;
 }
@@ -49,10 +57,10 @@ a.logo{
         padding-right: 20px;
     }
 }
-.socialbutton{
+
+.socialbutton {
     margin-bottom: 30px;
 }
-
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -62,16 +70,20 @@ a.logo{
     width: auto;
     max-width: 680px;
 }
+
 .container .credit {
     margin: 20px 0;
 }
-h1.title{
+
+h1.title {
     font-size: 28px;;
 }
-.sub-title{
+
+.sub-title {
     font-size: 24px;;
 }
-h3{
+
+h3 {
     font-size: 17.5px;
 }
 
@@ -79,18 +91,29 @@ h3{
     color: #00bb00;
 }
 
-p.cost{
+p.cost {
     text-align: right;
 }
+
 .offers li {
     list-style-type: none;
 }
-.offer{
+
+.offer {
     color: #800404;
     font-weight: bold;
 }
-.cost{
+
+.cost {
     width: 30px;
     color: #428803;
     font-weight: bold;
+}
+
+/* custom modal styles*/
+.modal-height {
+max-height: 500px;
+}
+.modal-body textarea {
+    width:482px;
 }

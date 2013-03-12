@@ -23,6 +23,7 @@
     <script src="./assets/js/html5shiv.js"></script>
     <![endif]-->
     <script type="text/javascript" src="./assets/js/jquery.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -98,6 +99,8 @@
                     <li> По формуле <strong> 4р </strong><span class="cost"> 100</span> $</li>
                 </ul>
                 </p>
+                <button class="btn btn-small btn-primary pull-right " data-toggle="modal" data-target="#myModal" type="button">Заказать</button>
+                <div class = "clearfix"></div>
 
 
                 <h3>Пчелосемьи</h3>
@@ -161,7 +164,7 @@
     </div>
     <div id="push"></div>
 </div>
-
+<?php require './modal.php'; ?>
 <div id="footer">
     <div class="container">
         <p class="muted credit">&copy; Perga.by 2013.  </p>

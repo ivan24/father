@@ -12,9 +12,10 @@
                     <label for="user-goods" class="control-label">Желаемый товар</label>
                     <div>
                         <select id="user-goods"  name="user[goods]" strong="true">
-                            <option value="100">$100</option>
-                            <option value="200">$200</option>
-                            <option value="300">$300</option>
+                            <option value="package">Пчелопакеты</option>
+                            <option value="family">Пчелосемьи</option>
+                            <option value="beesquen">Пчеломатки</option>
+                            <option value="honey">Мёд</option>
                         </select>
                     </div>
                 </div>
@@ -54,4 +55,7 @@
             </div>
         </form>
 </div>
+<script type="text/javascript">
+    $("#myModal").modal('show')
+</script>
 <!-- End Modal-->

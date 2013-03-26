@@ -24,6 +24,8 @@
                                         <option value="family">Пчелосемьи</option>
                                         <option value="beesquen">Пчеломатки</option>
                                         <option value="honey">Мёд</option>
+                                        <option value="perga">Перга</option>
+                                        <option value="wax">Воск</option>
                                     </select>
                             </div>
                         </div>
@@ -89,8 +91,7 @@
                                 </div>
                             <?php endif; ?>
                             <label class="control-label" for="user-msg"> Дополнительная информация</label>
-                            <textarea rows="5" id="user-msg" name=user[msg]
-                                      value="<?php echo $value['msg']; ?>"></textarea>
+                            <textarea rows="5" id="user-msg" name="user[msg]"><?php echo $value['msg']; ?></textarea>
                         </div>
                     </td>
                 </tr>
@@ -102,6 +103,3 @@
         </div>
     </form>
 </div>
-<script type="text/javascript">
-    $('.tooltip-error').tooltip();
-</script>

@@ -19,6 +19,14 @@ class Mail
         'require' => "Это поле не может быть пустым",
         'email_invalid_error' => "Введен не верный электронный адресс"
     );
+    protected $goods = array(
+        'package' => 'Пчелопакеты',
+        'family' => 'Пчелосемьи',
+        'beesquen' => 'Пчеломатки',
+        'honey' => 'Мёд',
+        'perga' => 'Перга',
+        'wax' => 'Воск'
+    );
 
     public function __construct()
     {
@@ -29,7 +37,8 @@ class Mail
             if (!count($errors)) {
 
                 if ($this->sendMail($this->getSanitized())) {
-                    header("Location:index.php?send=success");exit();
+                    header("Location:index.php?send=success");
+                    exit();
                 }
             }
         }
@@ -43,6 +52,8 @@ class Mail
 
         // Additional headers
         $headers .= 'From: ' . $data['email'] . "\r\n";
+
+        $data['goods'] = $this->getGoods($data['goods']);
         $date = new DateTime();
         $to = 'serge.oreshkov@gmail.com';
         $serverinfo = array();
@@ -123,5 +134,14 @@ class Mail
     {
         return $this->errors;
     }
+
+    public function getGoods($key)
+    {
+        if (isset($this->goods[$key])) {
+            return $this->goods[$key];
+        }
+        return false;
+    }
+
 
 }

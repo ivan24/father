@@ -4,7 +4,14 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Заказ принят</h3>
     </div>
+    <div class="modal-body">
+        <p> Спасибо за ваш заказ. Ближайшее время мы с вами свяжемся</p>
+    </div>
+
+    <form action="" method="get">
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+            <button name = "send" value="another" class="btn btn-primary">Заказать ещё</button>
+        </div>
+    </form>
 </div>
-<script type="text/javascript">
-    $('#myModal').modal('show')
-</script>

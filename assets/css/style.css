@@ -16,7 +16,7 @@ a.logo {
 /* Wrapper for page content to push down footer */
 #wrap {
     min-height: 100%;
-    min-width: 1200px;
+    min-width: 1300px;
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */

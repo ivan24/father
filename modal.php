@@ -11,7 +11,7 @@ if (isset($_GET['send']) && $_GET['send'] === 'success') {
         )
     );
 }
-if (isset($_POST) && !empty($_POST['user']) ||(isset($_GET['send']) && $_GET['send'] === 'success')) :
+if (isset($_POST) && !empty($_POST['user']) || (isset($_GET['send']) && ($_GET['send'] === 'success' || $_GET['send'] === 'another'))) :
     ?>
     <script type="text/javascript">
         $("#myModal").modal('show')

@@ -5,3 +5,6 @@
         <h3 id="myModalLabel">Заказ принят</h3>
     </div>
 </div>
+<script type="text/javascript">
+    $('#myModal').modal('show')
+</script>

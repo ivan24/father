@@ -7,15 +7,14 @@ class Mail
         'email',
         'phone'
     );
-    protected $fields = array(
+    protected $errors = array();
+    protected $sanitized = array(
         'goods' => '',
         'name' => '',
         'email' => '',
         'phone' => '',
         'msg' => ''
     );
-    protected $errors = array();
-    protected $sanitized = array();
     protected $messages = array(
         'require' => "Это поле не может быть пустым",
         'email_invalid_error' => "Введен не верный электронный адресс"
@@ -28,21 +27,43 @@ class Mail
             $this->validate();
             $errors = $this->getErrors();
             if (!count($errors)) {
-                $this->sendMail($this->getSanitized());
+
+                if ($this->sendMail($this->getSanitized())) {
+                    header("Location:index.php?send=success");exit();
+                }
             }
         }
-        return $this->render('orderForm.php', $this->getFields());
     }
 
     public function sendMail($data)
     {
+        // To send HTML mail, the Content-type header must be set
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
+        // Additional headers
+        $headers .= 'From: ' . $data['email'] . "\r\n";
+        $date = new DateTime();
+        $to = 'serge.oreshkov@gmail.com';
+        $serverinfo = array();
+        $serverinfo['remote_addr'] = $_SERVER['REMOTE_ADDR'] . " ( " . gethostbyaddr($_SERVER['REMOTE_ADDR']) . " )";
+        $serverinfo['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+        $serverinfo['date'] = $date->format('Y-m-d H:i:s');
+
+        $message = $this->render(
+            'mailForm.php',
+            array(
+                'userinfo' => $data,
+                'serverinfo' => $serverinfo
+            )
+        );
+        return mail($to, 'Предварительный заказ', $message, $headers, '-f' . $data['email']);
     }
 
-    public function render($filename, array $arg)
+    public function render($filename, array $arg = array())
     {
         ob_start();
-         extract($arg);
+        extract($arg);
         if (empty($filename)) {
             $filename = 'orderForm.php';
         }
@@ -50,7 +71,7 @@ class Mail
         if (file_exists($file)) {
             require $file;
         }
-        print ob_get_clean();
+        return ob_get_clean();
     }
 
     public function sanitazeData($data, $key = '')
@@ -76,11 +97,6 @@ class Mail
         if (!preg_match($email_regexp, $data['email'])) {
             $this->setErrors('email', $this->messages['email_invalid_error']);
         }
-    }
-
-    public function getFields()
-    {
-        return $this->fields;
     }
 
     public function getSanitized()

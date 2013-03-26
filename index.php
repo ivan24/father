@@ -1,14 +1,19 @@
+<?php
+    header('Content-Type:text/html;charset=utf8');
+    require_once './Mail.php';
+    $modal = new Mail();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Мёд. Продукты пчеловодства с частной пасеки</title>
+    <title>Пчелопакеты. Продукты пчеловодства с частной пасеки</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name='yandex-verification' content='44d6b73886cac8b2' />
     <meta name="google-site-verification" content="ERFZCYAAD2HbbUW8is6imJuZIKInJMG58sZTB72HC9o" />
 
 
-	<meta name="keywords" content="пчелопакеты, купить пчелопакеты, отводки, пчелопакеты 2013, продать пчелопакеты, продажа пчёл, продажа пчел, купить пчел, пчелопакеты Беларус, пчелосемьи, матки, мёд, перга, воск, прополис, продажа, купить,  Perga.by " />
+	<meta name="keywords" content="пчелопакеты, купить пчелопакеты, отводки, пчелопакеты 2013, продать пчелопакеты, продажа пчёл, продажа пчел, купить пчел, пчелопакеты Беларусь, пчелосемьи, матки, мёд, перга, воск, прополис, продажа, купить,  Perga.by " />
     <meta name="description" content=" Продажа пчелопакетов в мае 2013 года. Мёд, перга, воск и другие продукты пчеловодства с экологически чистой пасеки. Натуральный, качественный продукт. Бесплатная доставка по Минску">
     <meta name="author" content="Орешков Сергей Васильевич">
 

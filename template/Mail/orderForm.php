@@ -103,3 +103,6 @@
         </div>
     </form>
 </div>
+<script type="text/javascript">
+    $('.tooltip-error').tooltip();
+</script>

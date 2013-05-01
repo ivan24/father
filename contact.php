@@ -1,23 +1,23 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <title>Частная пасека. Адрес и телефоны.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="пчелопакеты, купить пчелопакеты, отводки, пчелопакеты 2013, продать пчелопакеты, продажа пчёл, продажа пчел, купить пчел, пчелопакеты Беларус, пчелосемьи, матки, мёд, перга, воск, прополис, продажа, купить,  Perga.by " />
-    <meta name="description" content=" Продажа пчелопакетов в мае 2013 года. Мёд, перга, воск и другие продукты пчеловодства с экологически чистой пасеки. Натуральный, качественный продукт. Бесплатная доставка по Минску">
-    <meta name="author" content="Орешков Сергей Васильевич">
+    <meta name="description" content=" Продажа пчелопакетов в мае 2013 года. Мёд, перга, воск и другие продукты пчеловодства с экологически чистой пасеки. Натуральный, качественный продукт. Бесплатная доставка по Минску"/>
+    <meta name="author" content="Орешков Сергей Васильевич"/>
 
     <!-- styles -->
-    <link href="./assets/css/bootstrap.css" rel="stylesheet">
-    <link href="./assets/css/style.css" rel="stylesheet">
-    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="./assets/css/style.css" rel="stylesheet"/>
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet"/>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]><script src="./assets/js/html5shiv.js"></script>  <![endif]-->
     <script type="text/javascript" src="./assets/js/jquery.js"></script>
-    <link rel="shortcut icon" href="./assets/ico/favicon.png">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon" />
     <!-- Maps -->
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAcPNiFNCL66V6s_sDZkACj2MEFmZ4rxMY&sensor=false"></script>
@@ -112,14 +112,7 @@
 </div>
 
 <div id="footer">
-    <div class="container">
-        <p class="muted credit">&copy; Perga.by 2013.</p>
-        <p class="credit"><strong>МТС: </strong>+375-29-880-37-78 <strong>Velcom: </strong>+375-29-309-59-86 <strong>Дом: </strong> 801592-93-147</p>
-        <!-- Yandex.Metrika counter -->
-            <script type="text/javascript" src='./assets/js/yandex.met.js'> </script>
-            <noscript><div><img src="//mc.yandex.ru/watch/20254915" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-    </div>
+    <?php require "footer.php";  ?>
 </div>
 
 </body>

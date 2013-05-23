@@ -106,10 +106,10 @@
             <div class="span6">
                 <h3>Пчелопакеты</h3>
                 <p>Формирование пчелопакетов высокого качества под заказ. Комплектацию и размер выбираете вы сами.</p>
-                <p class="offer"> Предварительный заказ на 8-15 мая:
+                <p class="offer"> Предварительный заказ:
                 <ul class ="offers">
-                    <li> По формуле <strong> 3р + 1 </strong><span class="cost"> 80</span> $</li>
-                    <li> По формуле <strong> 4р </strong><span class="cost"> 100</span> $</li>
+                    <li> По формуле <strong> 3р + 1 </strong><span class="cost"> 70</span> $</li>
+                    <li> По формуле <strong> 4р </strong><span class="cost"> 75</span> $</li>
                 </ul>
                 </p>
                 <button class="btn btn-small btn-primary pull-left modal-form" data-goods = 'package' data-toggle="modal" data-target="#myModal" type="button">Онлайн заказ</button>
@@ -133,7 +133,7 @@
                 Запутались? Не знаете, как их отличить и что с ними делать- звоните! Расскажем и если надо- покажем!</p>
                 <p class="offer">Цена:
                     <ul class ="offers">
-                        <li> Матки неплодные от племенных маток немецкой линии "Карника"<span class="cost"> 70 000</span> р/шт</li>
+                        <li> Матки неплодные от племенных маток немецкой линии "Карника" <span class="cost">8</span> $/шт</li>
                     </ul>
                 </p>
                 <button class="btn btn-small btn-primary pull-left modal-form" data-goods = 'beesquen' data-toggle="modal" data-target="#myModal" type="button">Онлайн заказ</button>
@@ -166,8 +166,8 @@
                 </p>
                 <p class="offer">Цена:
                     <ul class ="offers">
-                        <li> Мёд оптом и мелким оптом(15 кг)<span class="cost"> 50 000</span> р/кг</li>
-                        <li> Мёд в розницу<span class="cost"> 65 000</span> р/кг</li>
+                        <li> Мёд оптом и мелким оптом(15 кг)<span class="cost"> 5.7</span> $/кг</li>
+                        <li> Мёд в розницу<span class="cost"> 7.5</span> $/кг</li>
                     </ul>
                 </p>
                 <button class="btn btn-small btn-primary pull-left modal-form" data-goods = 'honey' data-toggle="modal" data-target="#myModal" type="button">Онлайн заказ</button>

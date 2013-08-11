@@ -1,0 +1,11 @@
+services:
+    sonata.admin.product:
+        class: Perga\ProductBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: id, label: "Products" }
+        arguments:
+            - ~
+            - Perga\ProductBundle\Entity\Products
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [PergaProductBundle]]

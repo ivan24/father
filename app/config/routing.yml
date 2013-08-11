@@ -1,3 +1,8 @@
+perga_product:
+    resource: "@PergaProductBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 # app/config/routing.yml
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

@@ -9,4 +9,8 @@
 /bin/
 /composer.phar
 /.idea/*
-./composer.lock
+composer.lock
+access.log
+error.log
+/vendor/
+~/vendor/.gitkeep

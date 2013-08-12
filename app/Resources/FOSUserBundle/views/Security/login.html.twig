@@ -1,0 +1,45 @@
+{#{% extends "StartupLabsHatcheryBundle::layout.html.twig" %}#}
+
+{% block stylesheets %}
+{#    {{ parent() }}#}
+    <link rel="stylesheet" href="{{ asset('bundles/startuplabshatchery/css/login.css') }}" type="text/css" media="all" />
+{% endblock stylesheets %}
+
+{% block content %}
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <div class="container">
+        <div class="content">
+            <div class="row">
+                <div class="login-form">
+                    <legend>Войти</legend>
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        <div class="control-group">
+                            <label for="username" class="control-label">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                            <div class="controls">
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="password" class="control-label">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                            <div class="controls">
+                                <input type="password" id="password" name="_password" required="required" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="checkbox" for="remember_me">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                                </label>
+                                <input type="submit" class="btn btn-primary pull-right" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

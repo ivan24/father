@@ -41,6 +41,7 @@
         ]
     },
     "config": {
+        "process-timeout": 5000,
         "bin-dir": "bin"
     },
     "minimum-stability": "dev",

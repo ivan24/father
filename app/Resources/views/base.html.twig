@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/style.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/jquery.jcarousel.css') }}" type="text/css" media="all" />
+        <!--[if IE 6]><link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/ie6.css') }}" type="text/css" media="all" /><![endif]-->
+        <link rel="shortcut icon" href="{{ asset('bundles/pergaproduct/css/images/favicon.ico') }}" />
+    {% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/jquery-1.4.2.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/jquery.jcarousel.pack.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/func.js') }}"></script>
+    {% endblock %}
+</body>

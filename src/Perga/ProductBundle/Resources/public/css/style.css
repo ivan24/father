@@ -157,60 +157,6 @@ textarea {
 	color:#ff0000;
 	text-decoration:none;
 }
-.slider {
-	width:930px;
-	height:300px;
-	border:1px solid #dbdbdb;
-	position:relative;
-	margin:25px 0 0 24px;
-}
-.slider .item {
-	position:relative;
-	width:928px;
-	height:298px;
-}
-.slider .item img {
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:1;
-}
-.slider .text {
-	position:absolute;
-	top:102px;
-	left:480px;
-	z-index:2;
-}
-.slider .text h3 {
-	font-size:45px;
-	line-height:45px;
-	color:#ff0000;
-	padding:0 0 0 7px;
-}
-.slider .text h2 {
-	font-size:58px;
-	line-height:58px;
-	color:#39393d;
-	text-transform:uppercase;
-	padding:0 0 0 2px;
-}
-.slider-nav {
-	width:92px;
-	height:18px;
-	position:absolute;
-	bottom:9px;
-	right:6px;
-	z-index:3;
-}
-.slider-nav a {
-	width:18px;
-	height:18px;
-	background:#d7d7d8;
-	margin:0 5px 0 0;
-}
-.slider-nav a.active {
-	background:#39393d;
-}
 #main {
 	width:932px;
 	padding:37px 24px 17px 24px;

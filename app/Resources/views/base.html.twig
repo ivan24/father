@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Пчелопакеты. Продукты пчеловодства с частной пасеки</title>
+    <title>{% block title %}Пчелопакеты. Продукты пчеловодства с частной пасеки{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <meta name='yandex-verification' content='44d6b73886cac8b2' />
@@ -12,7 +12,7 @@
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/style.css') }}" type="text/css" media="all" />
-        <link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/jquery.jcarousel.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/bootstrap/bootstrap.css') }}" type="text/css" media="all" />
         <!--[if IE 6]><link rel="stylesheet" href="{{ asset('bundles/pergaproduct/css/ie6.css') }}" type="text/css" media="all" /><![endif]-->
         <link rel="shortcut icon" href="{{ asset('bundles/pergaproduct/images/favicon.png') }}" />
     {% endblock %}
@@ -23,7 +23,7 @@
 {% endblock %}
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/jquery-1.10.2.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/jquery.jcarousel.pack.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/func.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/bootstrap.js') }}"></script>
+
     {% endblock %}
 </body>

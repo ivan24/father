@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends "PergaProductBundle:Default:index.html.twig" %}
 
-{% block body -%}
+{% block main %}
     <h1>Products</h1>
 
     <table class="record_properties">
@@ -34,17 +34,5 @@
             Back to the list
         </a>
     </li>
-    <li>
-        <a href="{{ path('product_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('product_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
 </ul>
-{% endblock %}
+{% endblock main %}

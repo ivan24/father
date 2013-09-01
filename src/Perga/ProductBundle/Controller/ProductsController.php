@@ -36,51 +36,6 @@ class ProductsController extends Controller
         );
     }
     /**
-     * Creates a new Products entity.
-     *
-     * @Route("/", name="product_create")
-     * @Method("POST")
-     * @Template("PergaProductBundle:Products:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-        $entity  = new Products();
-        $form = $this->createForm(new ProductsType(), $entity);
-        $form->submit($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('product_show', array('id' => $entity->getId())));
-        }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-     * Displays a form to create a new Products entity.
-     *
-     * @Route("/new", name="product_new")
-     * @Method("GET")
-     * @Template()
-     */
-    public function newAction()
-    {
-        $entity = new Products();
-        $form   = $this->createForm(new ProductsType(), $entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
      * Finds and displays a Products entity.
      *
      * @Route("/{id}", name="product_show")
@@ -101,33 +56,6 @@ class ProductsController extends Controller
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-     * Displays a form to edit an existing Products entity.
-     *
-     * @Route("/{id}/edit", name="product_edit")
-     * @Method("GET")
-     * @Template()
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PergaProductBundle:Products')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Products entity.');
-        }
-
-        $editForm = $this->createForm(new ProductsType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -165,31 +93,6 @@ class ProductsController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
-    }
-    /**
-     * Deletes a Products entity.
-     *
-     * @Route("/{id}", name="product_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->submit($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PergaProductBundle:Products')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Products entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('product'));
     }
 
     /**

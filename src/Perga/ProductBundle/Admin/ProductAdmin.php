@@ -12,9 +12,13 @@ class ProductAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('parent')
             ->add('name')
+            ->add('pageTitle')
+            ->add('shortDescription')
             ->add('description')
             ->add('price')
+            ->add('productOrder')
             ->add('status');
         ;
     }
@@ -22,9 +26,13 @@ class ProductAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('parent')
             ->add('name')
+            ->add('pageTitle')
+            ->add('shortDescription')
             ->add('description')
             ->add('price')
+            ->add('productOrder')
             ->add('status');
         ;
     }
@@ -32,9 +40,13 @@ class ProductAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('parent')
             ->add('name')
+            ->add('pageTitle')
+            ->add('shortDescription')
             ->add('description')
             ->add('price')
+            ->add('productOrder')
             ->add('status');
         ;
     }

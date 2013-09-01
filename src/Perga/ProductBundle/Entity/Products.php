@@ -31,6 +31,20 @@ class Products
     /**
      * @var string
      *
+     * @ORM\Column(name="page_title", type="string", length=255, nullable=false)
+     */
+    private $pageTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="short_description", type="text", nullable=false)
+     */
+    private $shortDescription;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
@@ -38,9 +52,16 @@ class Products
     /**
      * @var integer
      *
-     * @ORM\Column(name="price", type="integer", nullable=false)
+     * @ORM\Column(name="price", type="integer", nullable=true)
      */
     private $price;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_order", type="smallint", nullable=false)
+     */
+    private $productOrder;
 
     /**
      * @var boolean
@@ -48,6 +69,16 @@ class Products
      * @ORM\Column(name="status", type="boolean", nullable=false)
      */
     private $status;
+
+    /**
+     * @var \Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     * })
+     */
+    private $parent;
 
 
 
@@ -82,6 +113,52 @@ class Products
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set pageTitle
+     *
+     * @param string $pageTitle
+     * @return Products
+     */
+    public function setPageTitle($pageTitle)
+    {
+        $this->pageTitle = $pageTitle;
+    
+        return $this;
+    }
+
+    /**
+     * Get pageTitle
+     *
+     * @return string 
+     */
+    public function getPageTitle()
+    {
+        return $this->pageTitle;
+    }
+
+    /**
+     * Set shortDescription
+     *
+     * @param string $shortDescription
+     * @return Products
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->shortDescription = $shortDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get shortDescription
+     *
+     * @return string 
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
     }
 
     /**
@@ -131,6 +208,29 @@ class Products
     }
 
     /**
+     * Set productOrder
+     *
+     * @param integer $productOrder
+     * @return Products
+     */
+    public function setProductOrder($productOrder)
+    {
+        $this->productOrder = $productOrder;
+    
+        return $this;
+    }
+
+    /**
+     * Get productOrder
+     *
+     * @return integer 
+     */
+    public function getProductOrder()
+    {
+        return $this->productOrder;
+    }
+
+    /**
      * Set status
      *
      * @param boolean $status
@@ -151,5 +251,33 @@ class Products
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Perga\ProductBundle\Entity\Products $parent
+     * @return Products
+     */
+    public function setParent(\Perga\ProductBundle\Entity\Products $parent = null)
+    {
+        $this->parent = $parent;
+    
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Perga\ProductBundle\Entity\Products 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    function __toString()
+    {
+        return $this->getName();
     }
 }

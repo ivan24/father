@@ -13,7 +13,7 @@ use Perga\ProductBundle\Form\ProductsType;
 /**
  * Products controller.
  *
- * @Route("/product")
+ * @Route("/products")
  */
 class ProductsController extends Controller
 {
@@ -27,9 +27,15 @@ class ProductsController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine ()->getManager ();
+        $query = $em->createQuery (
+            'Select p FROM PergaProductBundle:Products p
+            WHERE p.status = :status
+            ORDER BY p.productOrder ASC
+            '
+        )->setParameters (array('status' => 1));
 
-        $entities = $em->getRepository('PergaProductBundle:Products')->findAll();
+        $entities = $query->getResult();
 
         return array(
             'entities' => $entities,
@@ -56,41 +62,6 @@ class ProductsController extends Controller
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-     * Edits an existing Products entity.
-     *
-     * @Route("/{id}", name="product_update")
-     * @Method("PUT")
-     * @Template("PergaProductBundle:Products:edit.html.twig")
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PergaProductBundle:Products')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Products entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new ProductsType(), $entity);
-        $editForm->submit($request);
-
-        if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('product_edit', array('id' => $id)));
-        }
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }

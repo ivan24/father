@@ -28,9 +28,6 @@ class ProductAdmin extends Admin
         $datagridMapper
             ->add('parent')
             ->add('name')
-            ->add('pageTitle')
-            ->add('shortDescription')
-            ->add('description')
             ->add('price')
             ->add('productOrder')
             ->add('status');

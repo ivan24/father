@@ -19,7 +19,7 @@ class ProductsController extends Controller
 {
 
     /**
-     * Lists all Products entities.
+     * Lists all category of product.
      *
      * @Route("/", name="product")
      * @Method("GET")
@@ -28,17 +28,17 @@ class ProductsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine ()->getManager ();
-        $query = $em->createQuery (
-            'Select p FROM PergaProductBundle:Products p
-            WHERE p.status = :status
+        $query = $em->createQuery ('
+            SELECT  p.id, p.name, p.description
+            FROM PergaProductBundle:Products p
+            WHERE p.parent IS NULL AND p.status = :status
             ORDER BY p.productOrder ASC
-            '
-        )->setParameters (array('status' => 1));
-
-        $entities = $query->getResult();
+        '
+        )->setParameter('status', 1);
+        $productCategories = $query->getResult();
 
         return array(
-            'entities' => $entities,
+            'productCategories' => $productCategories,
         );
     }
     /**
@@ -50,34 +50,20 @@ class ProductsController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine ()->getManager ();
 
-        $entity = $em->getRepository('PergaProductBundle:Products')->find($id);
-
-        if (!$entity) {
+        $query = $em->createQuery ('
+            SELECT  p.id, p.name, p.description, p.price, p.status
+            FROM PergaProductBundle:Products p
+            WHERE p.parent = :parent
+        ')->setParameter('parent', $id);
+        $products = $query->getResult();
+        if (!$products) {
             throw $this->createNotFoundException('Unable to find Products entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'products'=> $products,
         );
-    }
-
-    /**
-     * Creates a form to delete a Products entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
     }
 }

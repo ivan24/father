@@ -1,41 +1,14 @@
-<div class="highlight">
-    <h3>Welcome Note</h3>
-    <img src="{{ asset('bundles/pergaproduct/images/highlight.gif') }}" alt="" class="right" />
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-    <a href="#" class="more">Find out more</a>
-</div>
+{% block welcome %}
+    <div class="highlight">
+        <h3>Welcome Note</h3>
+        <img src="{{ asset('bundles/pergaproduct/images/highlight.gif') }}" alt="" class="right" />
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <a href="#" class="more">Find out more</a>
+    </div>
+{% endblock welcome %}
+
 <div class="projects">
-    <h3>Latest projects</h3>
-    <div class="item">
-        <div class="image left"> <a href="#"><img src="{{ asset('bundles/pergaproduct/images/project01.jpg') }}" alt="" /></a> </div>
-        <div class="text left">
-            <h4>simply dummy title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is</p>
-            <a href="#" class="more">Find out more</a> </div>
-        <div class="cl">&nbsp;</div>
-    </div>
-    <div class="item">
-        <div class="image left"> <a href="#"><img src="{{ asset('bundles/pergaproduct/images/project02.jpg') }}" alt="" /></a> </div>
-        <div class="text left">
-            <h4>simply dummy title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is</p>
-            <a href="#" class="more">Find out more</a> </div>
-        <div class="cl">&nbsp;</div>
-    </div>
-    <div class="item">
-        <div class="image left"> <a href="#"><img src="{{ asset('bundles/pergaproduct/images/project03.jpg') }}" alt="" /></a> </div>
-        <div class="text left">
-            <h4>simply dummy title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is</p>
-            <a href="#" class="more">Find out more</a> </div>
-        <div class="cl">&nbsp;</div>
-    </div>
-    <div class="item">
-        <div class="image left"> <a href="#"><img src="{{ asset('bundles/pergaproduct/images/project04.jpg') }}" alt="" /></a> </div>
-        <div class="text left">
-            <h4>simply dummy title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is</p>
-            <a href="#" class="more">Find out more</a> </div>
-        <div class="cl">&nbsp;</div>
-    </div>
+    {% block products %}
+        {% include "PergaProductBundle:Default:products.html.twig" %}
+    {% endblock products %}
 </div>

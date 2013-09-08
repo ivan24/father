@@ -1,24 +1,14 @@
 {% extends "PergaProductBundle:Default:index.html.twig" %}
 
-{% block main -%}
-    <h1>Products list</h1>
-
-    <table class="records_list">
-        <tbody>
-        {% for category in productCategories %}
-            <tr>
-            {#    <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
-                <td>{{ category.name }}</td>
-               <td>{{ category.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('product_show', { 'id': category.id }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% endblock main%}
+{% block main %}
+    {% block content %}
+        <div class="projects">
+            {% block products %}
+                <h3>Продукция</h3>
+                {% for category in productCategories %}
+                    {% include 'PergaProductBundle:Products:product.html.twig' with {'product': category} %}
+                {% endfor %}
+            {% endblock products %}
+        </div>
+    {% endblock content %}
+{% endblock main %}

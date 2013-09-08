@@ -1,0 +1,9 @@
+<div class="item">
+    <div class="image left"> <a href="#"><img src="{{ asset('bundles/pergaproduct/images/project01.jpg') }}" alt="" /></a> </div>
+    <div class="text left">
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.description }}</p>
+        <a href="{{ path('product_show', { 'id': product.id }) }}" class="more">Подробнее ...</a>
+    </div>
+    <div class="cl">&nbsp;</div>
+</div>

@@ -23,7 +23,19 @@ class ProductsController extends Controller
      */
     public function indexAction($name='')
     {
-        return array('name' => $name);
+        $em = $this->getDoctrine ()->getManager ();
+        $query = $em->createQuery ('
+            SELECT  p.id, p.name, p.description
+            FROM PergaProductBundle:Products p
+            WHERE p.parent IS NULL AND p.status = :status
+            ORDER BY p.productOrder ASC
+        '
+        )->setParameter('status', 1);
+        $productCategories = $query->getResult();
+
+        return array(
+            'productCategories' => $productCategories,
+        );
     }
     /**
      * Lists all category of product.

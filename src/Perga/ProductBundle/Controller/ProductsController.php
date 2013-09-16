@@ -13,19 +13,26 @@ use Perga\ProductBundle\Form\ProductsType;
 /**
  * Products controller.
  *
- * @Route("/products")
  */
 class ProductsController extends Controller
 {
 
+     /**
+     * @Route("/",name="front-page")
+     * @Template()
+     */
+    public function indexAction($name='')
+    {
+        return array('name' => $name);
+    }
     /**
      * Lists all category of product.
      *
-     * @Route("/", name="product")
+     * @Route("/products", name="product")
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function categoriesAction()
     {
         $em = $this->getDoctrine ()->getManager ();
         $query = $em->createQuery ('
@@ -44,7 +51,7 @@ class ProductsController extends Controller
     /**
      * Finds and displays a Products entity.
      *
-     * @Route("/{id}", name="product_show")
+     * @Route("/product/{id}", name="product_show")
      * @Method("GET")
      * @Template()
      */

@@ -19,11 +19,43 @@
 </head>
 <body>
 {% block body %}
+    <div class="shell">
+        <div class="border">
+            <div id="header">
+                {% block header %}
 
-{% endblock %}
+                {% endblock header %}
+            </div>
+            <div id="navigation">
+                {% block navigation %}
+
+                {% endblock navigation %}
+            </div>
+            <div id="myCarousel" class="carousel slide">
+                {% block slider %}
+
+                {% endblock slider %}
+            </div>
+            <div id="main">
+                {% block main %}
+
+                {% endblock main %}
+            </div>
+            <div class="shadow-l"></div>
+            <div class="shadow-r"></div>
+            <div class="shadow-b"></div>
+        </div>
+
+        <div id="footer">
+            {% block footer %}
+
+            {% endblock footer %}
+        </div>
+    </div>
+{% endblock body %}
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/jquery-1.10.2.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/bootstrap.js') }}"></script>
 
-    {% endblock %}
+    {% endblock javascripts %}
 </body>

@@ -1,14 +1,1 @@
-{% extends "PergaProductBundle:Default:index.html.twig" %}
-
-{% block main %}
-    {% block content %}
-        <div class="projects">
-            {% block products %}
-                <h3>Продукция</h3>
-                {% for category in productCategories %}
-                    {% include 'PergaProductBundle:Products:product.html.twig' with {'product': category} %}
-                {% endfor %}
-            {% endblock products %}
-        </div>
-    {% endblock content %}
-{% endblock main %}
+{% extends 'PergaProductBundle::layout.html.twig' %}

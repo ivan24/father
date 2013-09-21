@@ -1,34 +1,54 @@
 {% extends 'PergaProductBundle::layout.html.twig' %}
-
+{% block title %}Частная пасека. Адрес и телефоны.{% endblock %}
+{% block meta %}
+    {{ parent() }}
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+{% endblock meta %}
 {% block main %}
-    Контакты будут тут
-    {#<div id="content" class="left">#}
-        {#{% block content %}#}
-            {#{% block welcome %}#}
-                {#<div class="highlight">#}
-                    {#<h3>Welcome Note</h3>#}
-                    {#<img src="{{ asset('bundles/pergaproduct/images/highlight.gif') }}" alt="" class="right" />#}
-                    {#<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been#}
-                        {#the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley#}
-                        {#of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the#}
-                        {#printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever#}
-                        {#since the 1500s.#}
-                    {#</p>#}
-                    {#<a href="#" class="more">Find out more</a>#}
-                {#</div>#}
-            {#{% endblock welcome %}#}
+    {% block welcome %}{% endblock welcome %}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <p>
+                    <img src="{{ asset('bundles/pergaproduct/images/test/author.jpg') }}" class="img-float">
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui.
+                </p>
+            </div>
+        </div>
 
-            {#<div class="projects">#}
-                {#{% block products %}#}
-                    {#{% include "PergaProductBundle:Products:products.html.twig" %}#}
-                {#{% endblock products %}#}
-            {#</div>#}
-        {#{% endblock content %}#}
-    {#</div>#}
-    {#<div id="sidebar" class="right">#}
-        {#{% block sidebar %}#}
-            {#{% include "PergaProductBundle:Products:sidebar.html.twig" %}#}
-        {#{% endblock sidebar %}#}
-    {#</div>#}
-    {#<div class="cl">&nbsp;</div>#}
+        <div class="row-fluid">
+            <div class="span12">
+                <div  id="map_canvas" style="height:550px"></div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}
+{% block javascripts %}
+    {{ parent() }}
+    <!-- Maps -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAcPNiFNCL66V6s_sDZkACj2MEFmZ4rxMY&sensor=false"></script>
+    <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/google_maps.js') }}"></script>
+{% endblock javascripts %}

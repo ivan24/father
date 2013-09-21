@@ -285,3 +285,9 @@ textarea {
 	color:#7f7f7f;
 	text-decoration:none;
 }
+
+/*style for contact*/
+.img-float {
+    float: left;
+    margin: 0 7px 7px 0;
+}

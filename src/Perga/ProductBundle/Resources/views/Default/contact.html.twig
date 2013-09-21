@@ -4,13 +4,41 @@
     {{ parent() }}
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 {% endblock meta %}
+{% block slider %}
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+
+    <div class="carousel-inner">
+        {% block banners  %}
+         {#todo refactorin this code#}
+            {% for i in 1..12 %}
+                <div class="{% if i == 1 %}active{% endif %} item">
+                           <img src="{{  asset('bundles/pergaproduct/images/contact/banners/'~i~'.jpg') }}" alt="" />
+                    <div class="carousel-caption">
+                        <p>Рекламный текс №1.</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        {% endblock banners  %}
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+{% endblock slider %}
+
 {% block main %}
     {% block welcome %}{% endblock welcome %}
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
+                <h3>О компании</h3>
                 <p>
-                    <img src="{{ asset('bundles/pergaproduct/images/test/author.jpg') }}" class="img-float">
+                    <img title ="Пчеловод за работой. Получение маточного молочка." alt= "о пасеке" src="{{ asset('bundles/pergaproduct/images/contact/author/bee-keeper.jpg') }}" class="img-float">
                     Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
                     mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
                     mollis euismod. Donec sed odio dui.

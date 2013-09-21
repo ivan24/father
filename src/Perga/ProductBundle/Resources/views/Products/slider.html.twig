@@ -4,25 +4,29 @@
     <li data-target="#myCarousel" data-slide-to="2"></li>
 </ol>
 <!-- Carousel items -->
+
+
 <div class="carousel-inner">
-    <div class="active item">
-        <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
-        <div class="carousel-caption">
-            <p>Рекламный текс №1.</p>
+    {% block banners  %}
+        <div class="active item">
+            <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
+            <div class="carousel-caption">
+                <p>Рекламный текс №1.</p>
+            </div>
         </div>
-    </div>
-    <div class="item">
-        <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
-        <div class="carousel-caption">
-            <p>Рекламный текс №2.</p>
+        <div class="item">
+            <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
+            <div class="carousel-caption">
+                <p>Рекламный текс №2.</p>
+            </div>
         </div>
-    </div>
-    <div class="item">
-        <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
-        {#<div class="carousel-caption">#}
+        <div class="item">
+            <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
+            {#<div class="carousel-caption">#}
             {#<p>Рекламный текс№3.</p>#}
-        {#</div>#}
-    </div>
+            {#</div>#}
+        </div>
+    {% endblock banners  %}
 </div>
 <!-- Carousel nav -->
 <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>

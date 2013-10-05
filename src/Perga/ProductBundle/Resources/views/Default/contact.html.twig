@@ -15,12 +15,12 @@
     <div class="carousel-inner">
         {% block banners  %}
          {#todo refactorin this code#}
-            {% for i in 1..12 %}
+            {% for i in 1..6 %}
                 <div class="{% if i == 1 %}active{% endif %} item">
                            <img src="{{  asset('bundles/pergaproduct/images/contact/banners/'~i~'.jpg') }}" alt="" />
-                    <div class="carousel-caption">
+{#                    <div class="carousel-caption">
                         <p>Рекламный текс №1.</p>
-                    </div>
+                    </div>#}
                 </div>
             {% endfor %}
 

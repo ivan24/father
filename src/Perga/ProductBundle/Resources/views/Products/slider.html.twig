@@ -8,24 +8,16 @@
 
 <div class="carousel-inner">
     {% block banners  %}
-        <div class="active item">
-            <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
-            <div class="carousel-caption">
-                <p>Рекламный текс №1.</p>
+        {#todo refactorin this code#}
+        {% for i in 1..5 %}
+            <div class="{% if i == 1 %}active{% endif %} item">
+                <img src="{{  asset('bundles/pergaproduct/images/front-page/banners/'~i~'.jpg') }}" alt="" />
+                {#                    <div class="carousel-caption">
+                                        <p>Рекламный текс №1.</p>
+                                    </div>#}
             </div>
-        </div>
-        <div class="item">
-            <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
-            <div class="carousel-caption">
-                <p>Рекламный текс №2.</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="{{  asset('bundles/pergaproduct/images/slider01.gif') }}" alt="" />
-            {#<div class="carousel-caption">#}
-            {#<p>Рекламный текс№3.</p>#}
-            {#</div>#}
-        </div>
+        {% endfor %}
+
     {% endblock banners  %}
 </div>
 <!-- Carousel nav -->

@@ -21,7 +21,7 @@ class MenuBuilder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Главная', array('uri' => '/'));
-        $menu->addChild('Продукция', array('uri' => '/products'));
+        //$menu->addChild('Продукция', array('uri' => '/products'));
         $menu->addChild('Контакты', array('uri' => '/contact'));
         // ... add more children
 

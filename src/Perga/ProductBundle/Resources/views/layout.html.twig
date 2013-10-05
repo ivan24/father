@@ -5,8 +5,6 @@
         <a href="{{ path('front-page') }}" class="notext"></a>
     </h1>
     <address class = "address right">
-        Пасека <strong>"Мядовы маёнтак"</strong> находится <br>
-        в реестре предприятий таможенного союза<br>
         <strong><abbr title="Контактный телефон">Velcom: </abbr></strong>+375-29-309-59-86<br>
         <strong><abbr title="Контактный телефон">МТС: </abbr></strong>+375-29-880-37-78<br>
         <strong><abbr title="Контактный телефон">Дом: </abbr></strong>801592-93-147<br>
@@ -30,14 +28,13 @@
             {% block welcome %}
                 <div class="highlight">
                     <h3>Welcome Note</h3>
-                    <img src="{{ asset('bundles/pergaproduct/images/highlight.gif') }}" alt="" class="right" />
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
                         of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
                         since the 1500s.
                     </p>
-                    <a href="#" class="more">Find out more</a>
+                    <a href="/contact" class="more">О пасеке</a>
                 </div>
             {% endblock welcome %}
 
@@ -57,9 +54,11 @@
 {% endblock main %}
 
 {% block footer %}
+    <p class = "left"> Пасека <strong>"Мядовы маёнтак"</strong> находится в реестре предприятий таможенного союза</p>
+    <div class="cl">&nbsp;</div>
     <p class = "left">&copy; Орешков Сергей Васильевич 2008-2013. </p>
     <p class = "right">
-        <strong>Телефон: </strong>+375-29-309-59-86
+        <strong><abbr title="Контактный телефон">Velcom: </abbr></strong>+375-29-309-59-86<br>
     </p>
     <div class = "cl"></div>
 {% endblock footer %}

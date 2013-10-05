@@ -152,18 +152,19 @@ textarea {
 #content {
 	width:605px;
 }
-.highlight h3 {
+.welcome {
+    padding: 0 0 45px 0;
+}
+.welcome h3 {
 	margin:0 0 9px 0;
 }
-.highlight p {
+.welcome p {
 	padding:0 0 11px 0;
 }
-.highlight img {
+.welcome img {
 	margin:4px 12px 0 12px;
 }
-.projects {
-	padding:65px 0 0 0;
-}
+
 .projects h3 {
 	margin:0 0 17px 0;
 }
@@ -211,23 +212,7 @@ textarea {
 	color:#333;
 	padding:0 0 0 16px;
 }
-.btn-buy {
-	background:url(../images/btn-buy.gif) no-repeat 0 0;
-	display:block;
-	width:307px;
-	height:86px;
-	font-size:40px;
-	line-height:86px;
-	color:#b50000;
-	font-weight:bold;
-	text-align:center;
-	margin:0 0 17px 0;
-	position:relative;
-	left:-3px;
-}
-.btn-buy:hover {
-	text-decoration:none;
-}
+
 .advertisement {
 	padding:0 0 13px 0;
 }

@@ -1,4 +1,9 @@
+parameters:
+    product.model.class:   Perga\ProductBundle\Services\ProductModel
 services:
+    perga.model.product:
+        class: "%product.model.class%"
+        arguments:    [@doctrine.orm.entity_manager]
     perga.admin.product:
         class: Perga\ProductBundle\Admin\ProductAdmin
         tags:

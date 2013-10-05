@@ -21,17 +21,12 @@ class ProductsController extends Controller
      * @Route("/",name="front-page")
      * @Template()
      */
-    public function indexAction($name='')
+    public function indexAction()
     {
-        $em = $this->getDoctrine ()->getManager ();
-        $query = $em->createQuery ('
-            SELECT  p.id, p.name, p.description
-            FROM PergaProductBundle:Products p
-            WHERE p.parent IS NULL AND p.status = :status
-            ORDER BY p.productOrder ASC
-        '
-        )->setParameter('status', 1);
-        $productCategories = $query->getResult();
+        /**@var $productModel \Perga\ProductBundle\Services\ProductModel*/
+        $productModel = $this->get('perga.model.product');
+        $productCategories = $productModel->getCategory();
+        $products = $productModel->getProducts();
 
         return array(
             'productCategories' => $productCategories,
@@ -46,16 +41,9 @@ class ProductsController extends Controller
      */
     public function categoriesAction()
     {
-        $em = $this->getDoctrine ()->getManager ();
-        $query = $em->createQuery ('
-            SELECT  p.id, p.name, p.description
-            FROM PergaProductBundle:Products p
-            WHERE p.parent IS NULL AND p.status = :status
-            ORDER BY p.productOrder ASC
-        '
-        )->setParameter('status', 1);
-        $productCategories = $query->getResult();
-
+        /**@var $productModel \Perga\ProductBundle\Services\ProductModel*/
+        $productModel = $this->get('perga.model.product');
+        $productCategories = $productModel->getCategory();
         return array(
             'productCategories' => $productCategories,
         );
@@ -69,20 +57,12 @@ class ProductsController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine ()->getManager ();
-
-        $query = $em->createQuery ('
-            SELECT  p.id, p.name, p.description, p.price, p.status
-            FROM PergaProductBundle:Products p
-            WHERE p.parent = :parent
-        ')->setParameter('parent', $id);
-        $products = $query->getResult();
-        if (!$products) {
-            throw $this->createNotFoundException('Unable to find Products entity.');
-        }
+        /**@var $productModel \Perga\ProductBundle\Services\ProductModel*/
+        $productModel = $this->get('perga.model.product');
+        $product = $productModel->getProduct($id);
 
         return array(
-            'products'=> $products,
+            'product'=> $product[0],
         );
     }
 }

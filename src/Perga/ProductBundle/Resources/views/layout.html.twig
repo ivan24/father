@@ -40,7 +40,8 @@
 
             <div class="projects">
                 {% block products %}
-                    {% include "PergaProductBundle:Products:products.html.twig" %}
+                    <h3>Продукция</h3>
+                        {% include 'PergaProductBundle:Products:products.html.twig' with {'productCategories': productCategories} %}
                 {% endblock products %}
             </div>
         {% endblock content %}

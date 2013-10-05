@@ -1,9 +1,2 @@
 {% extends 'PergaProductBundle::layout.html.twig' %}
 
- {% block products %}
-     <h3>Продукция</h3>
-     {% for productCategory in productCategories %}
-         {% include 'PergaProductBundle:Products:product.html.twig' with {'product': productCategory} %}
-     {% endfor %}
- {% endblock products %}
-

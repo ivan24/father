@@ -1,3 +1,16 @@
-{% for productCategory in productCategories %}
-    {% include 'PergaProductBundle:Products:product.html.twig' with {'product': productCategory} %}
+{% for product in products %}
+    <div class="item">
+        <div class="image left">
+            <a href="#">
+                <img src="{{ asset('bundles/pergaproduct/images/project01.jpg') }}" alt="" />
+            </a>
+        </div>
+        <div class="text left">
+            <h4>Название: {{ product.name }}</h4>
+            <p>Цена: {{ product.price }}</p>
+            <a href="{{ path('product_show', { 'id': product.id }) }}" class="more">Подробнее ...</a>
+        </div>
+        <div class="cl">&nbsp;</div>
+    </div>
+    {#{% include 'PergaProductBundle:Products:product.html.twig' with {'product': productCategory} %}#}
 {% endfor %}

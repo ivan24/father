@@ -1,13 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block header %}
-    <h1 id="logo">
-        <a href="{{ path('front-page') }}" class="notext"></a>
-    </h1>
-    <address class = "address right">
+    <div class="logo">
+        <p><a href="/">Perga<span>.by</span></a></p>
+    </div>
+    <address class = "tel">
         <strong><abbr title="Контактный телефон">Velcom: </abbr></strong>+375-29-309-59-86<br>
         <strong><abbr title="Контактный телефон">МТС: </abbr></strong>+375-29-880-37-78<br>
-        <strong><abbr title="Контактный телефон">Дом: </abbr></strong>801592-93-147<br>
+        <strong><abbr title="Контактный телефон">Дом: </abbr></strong>8-015-92-93-147<br>
     </address>
 
     <div class="cl">&nbsp;</div>
@@ -42,7 +42,7 @@
             <div class="projects">
                 {% block products %}
                     <h3>Продукция</h3>
-                        {% include 'PergaProductBundle:Products:products.html.twig' with {'productCategories': productCategories} %}
+                        {% include 'PergaProductBundle:Products:products.html.twig' with {'products': products} %}
                 {% endblock products %}
             </div>
         {% endblock content %}

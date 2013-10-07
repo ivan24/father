@@ -23,14 +23,10 @@ class ProductsController extends Controller
      */
     public function indexAction()
     {
-        /**@var $productModel \Perga\ProductBundle\Services\ProductModel*/
+        /**@var $productModel \Perga\ProductBundle\Services\ProductModel */
         $productModel = $this->get('perga.model.product');
-        $productCategories = $productModel->getCategory();
         $products = $productModel->getProducts();
-
-        return array(
-            'productCategories' => $productCategories,
-        );
+        return array('products' => $products);
     }
     /**
      * Lists all category of product.

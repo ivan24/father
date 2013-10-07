@@ -13,7 +13,7 @@ class ProductModel
         $this->entityManager = $entityManager;
     }
 
-    public function getCategory()
+    public function getCategories()
     {
         $query = $this->entityManager->createQuery('
             SELECT  p.id, p.name, p.description
@@ -25,7 +25,19 @@ class ProductModel
         return $query->getResult();
     }
 
-    public function getCategoriesWithProducts()
+    public function getProductsByCategoryId($catId)
+    {
+        $query = $this->entityManager->createQuery('
+            SELECT  p.id, p.name, p.description
+            FROM PergaProductBundle:Products p
+            WHERE p.parent =:catId AND p.status = :status
+            ORDER BY p.productOrder ASC
+        '
+        )->setParameters(array('catId' => $catId, 'status' => 1));
+        return $query->getResult();
+    }
+
+      public function getCategoriesWithProducts()
     {
         $result = array();
         $query = $this->entityManager->createQuery('
@@ -69,7 +81,7 @@ class ProductModel
         $query = $this->entityManager->createQuery('
             SELECT  p.id, p.name, p.description, p.price, p.status
             FROM PergaProductBundle:Products p
-            WHERE p.id = :id
+            WHERE p.id = :id AND p.parent IS NOT NULL
         ')->setParameter('id', $id);
         $product = $query->getResult();
         if (!$product) {

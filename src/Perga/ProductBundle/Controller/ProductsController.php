@@ -25,23 +25,25 @@ class ProductsController extends Controller
     {
         /**@var $productModel \Perga\ProductBundle\Services\ProductModel */
         $productModel = $this->get('perga.model.product');
-        $products = $productModel->getProducts();
+        $products = $productModel->getCategoriesWithProducts();
         return array('products' => $products);
     }
     /**
      * Lists all category of product.
      *
-     * @Route("/products", name="product")
+     * @Route("/category/{catId}", name="cat_products")
      * @Method("GET")
      * @Template()
      */
-    public function categoriesAction()
+    public function categoriesAction($catId)
     {
         /**@var $productModel \Perga\ProductBundle\Services\ProductModel*/
         $productModel = $this->get('perga.model.product');
-        $productCategories = $productModel->getCategory();
+        $products = $productModel->getProductsByCategoryId($catId);
+        $category = $this->getDoctrine()->getRepository('PergaProductBundle:Products')->find($catId);
         return array(
-            'productCategories' => $productCategories,
+            'products' => $products,
+            'category' => $category
         );
     }
     /**

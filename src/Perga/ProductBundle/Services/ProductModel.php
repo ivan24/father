@@ -28,8 +28,9 @@ class ProductModel
     public function getProductsByCategoryId($catId)
     {
         $query = $this->entityManager->createQuery('
-            SELECT  p.id, p.name, p.description, p.price
+            SELECT  p.id, p.name, p.description, p.price, img.src
             FROM PergaProductBundle:Products p
+            LEFT JOIN PergaProductBundle:ProductImages img WITH img.product = p.id
             WHERE p.parent =:catId AND p.status = :status
             ORDER BY p.productOrder ASC
         '
@@ -41,7 +42,7 @@ class ProductModel
     {
         $result = array();
         $query = $this->entityManager->createQuery('
-            SELECT  product.id, product.name, product.price, category.name as catName, img.src
+            SELECT  product.id, product.name, product.price, product.shortDescription, category.name as catName, img.src
             FROM PergaProductBundle:Products product
               LEFT JOIN PergaProductBundle:Products category WITH product.parent IS NOT NULL
               LEFT JOIN PergaProductBundle:ProductImages img WITH img.product = product.id
@@ -58,7 +59,9 @@ class ProductModel
                 'src' => $product['src'],
                 'id' => $product['id'],
                 'name' => $product['name'],
-                'price' => $product['price']
+                'price' => $product['price'],
+                'shortDescription' => $product['shortDescription'],
+
             );
         }
         return $result;
@@ -67,8 +70,9 @@ class ProductModel
     public function getProducts()
     {
         $query = $this->entityManager->createQuery('
-            SELECT  p.id, p.name, p.price
+            SELECT  p.id, p.name, p.price, img.src
             FROM PergaProductBundle:Products p
+            LEFT JOIN PergaProductBundle:ProductImages img WITH img.product = p.id
             WHERE p.parent IS NOT NULL AND p.status = :status
             ORDER BY p.productOrder ASC
         '
@@ -79,8 +83,9 @@ class ProductModel
     public function getProduct($id)
     {
         $query = $this->entityManager->createQuery('
-            SELECT  p.id, p.name, p.description, p.price, p.status
+            SELECT  p.id, p.name, p.description, p.price, img.src
             FROM PergaProductBundle:Products p
+            LEFT JOIN PergaProductBundle:ProductImages img WITH img.product = p.id
             WHERE p.id = :id AND p.parent IS NOT NULL
         ')->setParameter('id', $id);
         $product = $query->getResult();

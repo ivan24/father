@@ -1,9 +1,9 @@
 <div class="product__title">
-    <h4>{{ product.name }}</h4>
+    <h2>{{ product.name }}</h2>
 </div>
 <div class="product__content">
     <p class="product__info">
-        <img class="img-float" src="{{ asset('bundles/pergaproduct/images/products/honey.jpg') }}" alt="" title="">
+        <img class="img-float" src="{{ asset(product.src) }}" alt="" title="">
         {{ product.description }}
     </p>
     <p class="product__price">

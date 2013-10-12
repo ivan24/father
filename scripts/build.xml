@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name = "Perga.by" basedir=".." default = "dist" description="My own project">
+    <property name = "buildDir" value = "${project.basedir}/build" override = "true" />
+    <property name = "archiveFile" value = "${buildDir}/build.tar.gz" override = "true" />
+
+
+    <fileset dir="${buildDir}" id="cleanBuildDirectory">
+        <include name="**/**" />
+        <exclude name ="build.tar.gz"/>
+    </fileset>
+
+    <target name = "prepare">
+        <echo msg = "Making directory ./build" />
+        <mkdir dir = "./build" />
+    </target>
+
+    <fileset dir = "${project.basedir}" id = "allfiles">
+        <include name = "**/**" />
+        <exclude name="build/**"/>
+        <exclude name="app/cache/**"/>
+        <exclude name="app/logs/**"/>
+        <exclude name=".idea/**"/>
+        <exclude name=".git/**"/>
+        <exclude name="script/**"/>
+    </fileset>
+
+    <target name = "copy" description = "main target" depends="prepare">
+        <echo msg = "Copy all files to ${buildDir} directory" />
+        <copy todir = "${buildDir}">
+            <fileset refid = "allfiles" />
+        </copy>
+    </target>
+
+    <target name = "dist" depends = "copy">
+        <echo msg = "Creating archive..." />
+        <tar destfile = "${archiveFile}" compression = "gzip">
+            <fileset dir = "${buildDir}">
+                <include name = "**/**" />
+            </fileset>
+        </tar>
+        <phingcall target="clean" />
+    </target>
+
+    <target name="clean">
+        <echo msg = "Clean build directory" />
+        <delete>
+            <fileset refid="cleanBuildDirectory" />
+        </delete>
+        <delete dir="${buildDir}/app" />
+        <delete dir="${buildDir}/bin" />
+        <delete dir="${buildDir}/scripts" />
+        <delete dir="${buildDir}/vendor" />
+        <delete dir="${buildDir}/web" />
+        <delete dir="${buildDir}/src" />
+    </target>
+
+</project>

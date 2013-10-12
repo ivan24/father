@@ -1,18 +1,28 @@
 {% for key, catProducts in products %}
-    <h3>{{ key }}</h3>
+    <div class="product__title">
+        <h2>{{ key }}</h2>
+    </div>
     {% for product in catProducts %}
-        <div class="item">
-            <div class="image left">
-                <a href="{{ path('product_show', { 'id': product.id }) }}">
-                    <img src="{{ asset('bundles/pergaproduct/images/project01.jpg') }}" alt="" />
+
+        <div class="product__item">
+            <div class="product__content">
+                <a class="articles__image" href="{{ path('product_show', { 'id': product.id }) }}">
+                    <img src="{{ asset('bundles/pergaproduct/images/products/honey.jpg') }}" alt="" title="">
                 </a>
+                <h4 class="product__link" >
+                    <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.name }}</a>
+                </h4>
+                <p class="product__info">
+                    If you have never obtained a short term cash loan before, you are likely to have questions about
+                    the process. Here you can find all of the basics about these loans and help you decide whether or
+                    not such a loan is right for you—and your personal financial…
+                </p>
+                <p class="product__price">
+                   Цена: <span class = 'product__price__amount'>{{ product.price }}</span>
+                    <span class="product__price__currency">y.e</span>
+                </p>
             </div>
-            <div class="text left">
-                <h4>Название: {{ product.name }}</h4>
-                <p>Цена: {{ product.price }}</p>
-                <a href="{{ path('product_show', { 'id': product.id }) }}" class="more">Подробнее ...</a>
-            </div>
-            <div class="cl">&nbsp;</div>
         </div>
     {% endfor %}
+    <div class="cl">&nbsp;</div>
 {% endfor %}

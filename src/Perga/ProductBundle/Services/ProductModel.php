@@ -28,7 +28,7 @@ class ProductModel
     public function getProductsByCategoryId($catId)
     {
         $query = $this->entityManager->createQuery('
-            SELECT  p.id, p.name, p.description
+            SELECT  p.id, p.name, p.description, p.price
             FROM PergaProductBundle:Products p
             WHERE p.parent =:catId AND p.status = :status
             ORDER BY p.productOrder ASC

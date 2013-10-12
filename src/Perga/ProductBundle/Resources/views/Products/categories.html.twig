@@ -1,7 +1,6 @@
 {% extends "PergaProductBundle::layout.html.twig" %}
 
  {% block products %}
-     <h3>{{ category.name }}</h3>
      {% for product in products %}
          {% include 'PergaProductBundle:Products:product.html.twig' with {'product': product} %}
      {% endfor %}

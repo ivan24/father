@@ -3,25 +3,17 @@
 {% block welcome %}
 {% endblock welcome %}
 {% block products %}
-    <h1>{{ product.name }}</h1>
-    <div class = "item">
-        <div class = "image left">
-            <a href = "#">
-                <img src = "{{ asset('bundles/pergaproduct/images/project01.jpg') }}" alt = ""/>
-            </a>
-        </div>
-        <div class = "text left">
-            <h4>{{ product.name }}</h4>
-            <p>{{ product.description }}</p>
-            <p>{{ product.description }}</p>
-            <p><span>Цена:</span> {{ product.price }}</p>
-        </div>
-        <div class = "cl">&nbsp;</div>
+    <div class="product__title">
+        <h2>{{ product.name }}</h2>
     </div>
-
-    <ul class = "record_actions">
-        <li>
-            <a href = "{{ path('front-page') }}">На главную</a>
-        </li>
-    </ul>
+    <div class="product__content">
+        <p class="product__info">
+            <img class="img-float" src="{{ asset('bundles/pergaproduct/images/products/honey.jpg') }}" alt="" title="">
+            {{ product.description }}
+        </p>
+        <p class="product__price">
+            Цена: <span class = 'product__price__amount'>{{ product.price }}</span>
+            <span class="product__price__currency">y.e</span>
+        </p>
+    </div>
 {% endblock products %}

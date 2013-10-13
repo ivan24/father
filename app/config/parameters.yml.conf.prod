@@ -1,6 +1,6 @@
 parameters:
     database_driver: pdo_mysql
-    database_host: 31.170.164.21
+    database_host: mysql.hostinger.ru
     database_port: 3306
     database_name: u974844935_fathe
     database_user: u974844935_fathe

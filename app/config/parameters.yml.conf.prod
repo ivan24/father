@@ -1,0 +1,13 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 31.170.164.21
+    database_port: 3306
+    database_name: u974844935_fathe
+    database_user: u974844935_fathe
+    database_password: u974844935_123456
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: ru
+    secret: ThisTokenIsNotSoSecretChangeIt

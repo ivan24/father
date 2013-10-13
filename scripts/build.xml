@@ -3,7 +3,6 @@
     <property name = "buildDir" value = "${project.basedir}/build" override = "true" />
     <property name = "archiveFile" value = "${buildDir}/build.tar.gz" override = "true" />
 
-
     <fileset dir="${buildDir}" id="cleanBuildDirectory">
         <include name="**/**" />
         <exclude name ="build.tar.gz"/>
@@ -21,7 +20,10 @@
         <exclude name="app/logs/**"/>
         <exclude name=".idea/**"/>
         <exclude name=".git/**"/>
-        <exclude name="script/**"/>
+        <exclude name="scripts/**"/>
+        <exclude name="app/config/parameters.yml.dist"/>
+        <exclude name="app/config/parameters.yml"/>
+        <exclude name="app/config/parameters.yml.conf"/>
     </fileset>
 
     <target name = "copy" description = "main target" depends="prepare">
@@ -29,6 +31,9 @@
         <copy todir = "${buildDir}">
             <fileset refid = "allfiles" />
         </copy>
+
+        <copy file="${buildDir}/app/config/parameters.yml.conf.prod" tofile="${buildDir}/app/config/parameters.yml" />
+        <delete file="${buildDir}/app/config/parameters.yml.conf.prod" />
         <mkdir dir = "${buildDir}/app/cache"/>
         <chmod file="${buildDir}/app/cache" mode="0777" />
         <mkdir dir = "${buildDir}/app/logs"/>
@@ -42,6 +47,7 @@
                 <include name = "**/**" />
             </fileset>
         </tar>
+        <echo msg = "archive have done" />
         <phingcall target="clean" />
     </target>
 
@@ -52,7 +58,6 @@
         </delete>
         <delete dir="${buildDir}/app" />
         <delete dir="${buildDir}/bin" />
-        <delete dir="${buildDir}/scripts" />
         <delete dir="${buildDir}/vendor" />
         <delete dir="${buildDir}/web" />
         <delete dir="${buildDir}/src" />

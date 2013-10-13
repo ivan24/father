@@ -29,6 +29,10 @@
         <copy todir = "${buildDir}">
             <fileset refid = "allfiles" />
         </copy>
+        <mkdir dir = "${buildDir}/app/cache"/>
+        <chmod file="${buildDir}/app/cache" mode="0777" />
+        <mkdir dir = "${buildDir}/app/logs"/>
+        <chmod file="${buildDir}/app/logs" mode="0777" />
     </target>
 
     <target name = "dist" depends = "copy">

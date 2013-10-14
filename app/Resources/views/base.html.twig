@@ -55,8 +55,10 @@
     </div>
 {% endblock body %}
     {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/jquery-1.10.2.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/pergaproduct/js/bootstrap.js') }}"></script>
-
+        {% javascripts
+            '@PergaProductBundle/Resources/public/js/jquery-1.10.2.js'
+            '@PergaProductBundle/Resources/public/js/bootstrap.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     {% endblock javascripts %}
 </body>

@@ -3,17 +3,24 @@ services:
     perga.admin.product:
         class: Perga\ProductBundle\Admin\ProductAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: id, label: "Продукция" }
+            - name: sonata.admin
+              manager_type: orm
+              group: "Продукты"
+              label: "Продукты"
         arguments:
             - ~
             - Perga\ProductBundle\Entity\Products
-            - ~
+            # by default use - ~ instead of I create my CrudClass
+            - 'PergaProductBundle:ProductCRUD'
         calls:
             - [ setTranslationDomain, [PergaProductBundle]]
     perga.admin.images:
         class: Perga\ProductBundle\Admin\ProductImagesAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: id, label: "Картинки для продуктов" }
+            - name: sonata.admin
+              manager_type: orm
+              group: "Продукты"
+              label: "Картинки для продуктов"
         arguments:
             - ~
             - Perga\ProductBundle\Entity\ProductImages

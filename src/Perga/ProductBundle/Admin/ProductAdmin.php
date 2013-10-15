@@ -9,11 +9,13 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ProductAdmin extends Admin
 {
+    //set a custom URL for a given this class
+    protected $baseRoutePattern = 'product';
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('parent', 'entity', array('class' =>'Perga\ProductBundle\Entity\Products'))
+            ->add('parent')
             ->add('name')
             ->add('pageTitle')
             ->add('shortDescription')
@@ -37,6 +39,11 @@ class ProductAdmin extends Admin
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
+// Example: change route for field parent from  edit to show
+//        $listMapper
+//            ->addIdentifier('parent', null, array(
+//                'route' => array('name' => 'show')
+//            ));
         $listMapper
             ->add('parent')
             ->add('name')

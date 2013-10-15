@@ -8,6 +8,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ProductImagesAdmin extends Admin
 {
+    //set a custom URL for a given this class
+    protected $baseRoutePattern = 'product/images';
+
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {

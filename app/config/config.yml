@@ -77,11 +77,29 @@ sonata_admin:
         list:    SonataAdminBundle:CRUD:list.html.twig
         show:    SonataAdminBundle:CRUD:show.html.twig
         edit:    SonataAdminBundle:CRUD:edit.html.twig
+        #dashboard: SonataAdminBundle:Core:dashboard.html.twi
 
     dashboard:
         blocks:
             # display a dashboard block
-            - { position: left, type: sonata.admin.block.admin_list }
+            - position: left
+              type: sonata.admin.block.admin_list
+
+# for example how I can configurate block in dashboard
+#            - position: right
+#              type: sonata.admin.block.admin_list
+#              settings:
+#                groups: [Продукты]
+#            - position: right
+#              type: sonata.block.service.text
+#              settings:
+#                content: '<p>This is  <code>sonata.block.service.text</code>. This is  configurated from config'
+#
+#            - position: right
+#              type: sonata.block.service.rss
+#              settings:
+#                title: Sonata Project's Feeds
+#                url: http://sonata-project.org/blog/archive.rss
     # set to true to persist filter settings per admin module in the user's session
     persist_filters: false
 

@@ -64,8 +64,10 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+# Sonata Admin Configuration
 sonata_admin:
-    title: perga.by
+    title: Продукты пчеловодства с частной пасеки "Мядовы маёнтак"
+    title_logo: /bundles/pergaproduct/images/logo.png
     templates:
         # default global templates
         layout:  SonataAdminBundle::standard_layout.html.twig

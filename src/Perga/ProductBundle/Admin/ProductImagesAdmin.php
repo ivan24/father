@@ -8,14 +8,16 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ProductImagesAdmin extends Admin
 {
+    // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('src')
-            ->add('product')
+            ->add('product', 'entity', array('class' =>'Perga\ProductBundle\Entity\Products'))
         ;
     }
 
+    // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -23,7 +25,7 @@ class ProductImagesAdmin extends Admin
             ->add('product')
         ;
     }
-
+    // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

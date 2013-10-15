@@ -21,8 +21,9 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            //my bundle
             new Perga\ProductBundle\PergaProductBundle(),
-            new FOS\UserBundle\FOSUserBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

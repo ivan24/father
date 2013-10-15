@@ -3,7 +3,7 @@ perga_product:
     type:     annotation
     prefix:   /
 
-# app/config/routing.yml
+#sonata-admin bundle
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
@@ -13,7 +13,7 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
-# app/config/routing.yml
+#fos user bundle
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

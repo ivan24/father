@@ -1,0 +1,22 @@
+parameters:
+services:
+    perga.admin.product:
+        class: Perga\ProductBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: id, label: "Продукция" }
+        arguments:
+            - ~
+            - Perga\ProductBundle\Entity\Products
+            - ~
+        calls:
+            - [ setTranslationDomain, [PergaProductBundle]]
+    perga.admin.images:
+        class: Perga\ProductBundle\Admin\ProductImagesAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: id, label: "Картинки для продуктов" }
+        arguments:
+            - ~
+            - Perga\ProductBundle\Entity\ProductImages
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [ setTranslationDomain, [PergaProductBundle]]

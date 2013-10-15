@@ -9,10 +9,11 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ProductAdmin extends Admin
 {
+    // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('parent')
+            ->add('parent', 'entity', array('class' =>'Perga\ProductBundle\Entity\Products'))
             ->add('name')
             ->add('pageTitle')
             ->add('shortDescription')
@@ -22,7 +23,7 @@ class ProductAdmin extends Admin
             ->add('status');
         ;
     }
-
+    // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -33,7 +34,7 @@ class ProductAdmin extends Admin
             ->add('status');
         ;
     }
-
+    // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

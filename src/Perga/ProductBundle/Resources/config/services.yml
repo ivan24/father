@@ -4,38 +4,6 @@ services:
     perga.model.product:
         class: "%product.model.class%"
         arguments:    [@doctrine.orm.entity_manager]
-    perga.admin.product:
-        class: Perga\ProductBundle\Admin\ProductAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: id, label: "Продукция" }
-        arguments:
-            - ~
-            - Perga\ProductBundle\Entity\Products
-            - 'SonataAdminBundle:CRUD'
-        calls:
-            - [ setTranslationDomain, [PergaProductBundle]]
-    perga.admin.images:
-        class: Perga\ProductBundle\Admin\ProductImagesAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: id, label: "Картинки для продуктов" }
-        arguments:
-            - ~
-            - Perga\ProductBundle\Entity\ProductImages
-            - 'SonataAdminBundle:CRUD'
-        calls:
-            - [ setTranslationDomain, [PergaProductBundle]]
-    perga.menu_builder:
-        class: Perga\ProductBundle\Menu\MenuBuilder
-        arguments: ["@knp_menu.factory"]
-
-    perga.menu.main:
-        class: Knp\Menu\MenuItem # the service definition requires setting the class
-        factory_service: perga.menu_builder
-        factory_method: createMainMenu
-        arguments: ["@request"]
-        scope: request # needed as we have the request as a dependency here
-        tags:
-            - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
         tags:

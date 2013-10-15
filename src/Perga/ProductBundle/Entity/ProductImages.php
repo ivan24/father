@@ -29,9 +29,9 @@ class ProductImages
     private $src;
 
     /**
-     * @var \Products
+     * @var \Perga\ProductBundle\Entity\Products
      *
-     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\ManyToOne(targetEntity="Perga\ProductBundle\Entity\Products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -43,7 +43,7 @@ class ProductImages
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -59,14 +59,14 @@ class ProductImages
     public function setSrc($src)
     {
         $this->src = $src;
-    
+
         return $this;
     }
 
     /**
      * Get src
      *
-     * @return string 
+     * @return string
      */
     public function getSrc()
     {
@@ -82,14 +82,14 @@ class ProductImages
     public function setProduct(\Perga\ProductBundle\Entity\Products $product = null)
     {
         $this->product = $product;
-    
+
         return $this;
     }
 
     /**
      * Get product
      *
-     * @return \Perga\ProductBundle\Entity\Products 
+     * @return \Perga\ProductBundle\Entity\Products
      */
     public function getProduct()
     {

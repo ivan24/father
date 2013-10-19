@@ -4,10 +4,8 @@
     <div class="logo">
         <p><a href="/">Perga<span>.by</span></a></p>
     </div>
-    <address class = "tel">
-        <strong><abbr title="Контактный телефон">Velcom: </abbr></strong>+375-29-309-59-86<br>
-        <strong><abbr title="Контактный телефон">МТС: </abbr></strong>+375-29-880-37-78<br>
-        <strong><abbr title="Контактный телефон">Дом: </abbr></strong>8-015-92-93-147<br>
+    <address class = "tel phone">
+        {% include "PergaProductBundle:Products:phone.html.twig" %}
     </address>
 
     <div class="cl">&nbsp;</div>
@@ -27,12 +25,14 @@
         {% block content %}
             {% block welcome %}
                 <div class="welcome">
-                    <h3>Welcome Note</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the
-                        printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                        since the 1500s.
+                    <h3>Мёд и продукты пчеловодства</h3>
+                    <p>Мы предлагаем экологически чистый и натуральный продукт со своей пасеки. Так как мы работаем без
+                        посредников, цены на наш мед не завышены и отражают реальную стоимость данного продукта. Мы окажем
+                        вам профессиональную консультацию и поможем сделать непростой выбор из разнообразия меда. Мы
+                        действительно хотим, чтобы вы насладились натуральным медом и стали нашим постоянным покупателем.
+                        Наш принцип - только натуральный мед и доброе отношение к нашим клиентам - залог успешного бизнеса!
+                        После того, как вы решили побаловать себя и своих близких натуральным медом, свяжитесь в нами и
+                        мы доставим вам мед в любую точку города. Также мы можем доставить вам ваш заказ по Беларуси.
                         <a href="/contact" class="more">О пасеке</a>
                     </p>
 

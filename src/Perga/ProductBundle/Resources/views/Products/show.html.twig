@@ -7,13 +7,14 @@
         <h2 class="text-left">{{ product.name }}</h2>
     </div>
     <div class="product__content">
-        <p class="product__info">
+        <p class="product__description">
             <img class="img-float" src="{{ asset(product.src) }}" alt="" title="">
-            {{ product.description }}
+            {{ product.description|raw }}
         </p>
+        <div class="cl">&nbsp;</div>
         <p class="product__price">
-            Цена: <span class = 'product__price__amount'>{{ product.price }}</span>
-            <span class="product__price__currency">y.e</span>
+            Цена: <span class = 'product__price__amount dev-product-price'>{{ product.price }}</span>
+            <span class="product__price__currency dev-product-currence">y.e</span>
         </p>
     </div>
 {% endblock products %}

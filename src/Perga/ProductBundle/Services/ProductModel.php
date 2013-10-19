@@ -47,6 +47,7 @@ class ProductModel
               LEFT JOIN PergaProductBundle:Products category WITH product.parent IS NOT NULL
               LEFT JOIN PergaProductBundle:ProductImages img WITH img.product = product.id
             WHERE product.parent = category.id AND product.status = :status
+            ORDER BY product.productOrder ASC
             ')->setParameter('status', 1);
         $rowResult = $query->getResult();
 

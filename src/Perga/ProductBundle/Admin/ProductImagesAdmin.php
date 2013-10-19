@@ -32,8 +32,8 @@ class ProductImagesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('src')
-            ->add('product')
+            ->addIdentifier('src')
+            ->addIdentifier('product')
         ;
     }
 }

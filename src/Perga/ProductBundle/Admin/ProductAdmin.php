@@ -3,9 +3,11 @@
 namespace Perga\ProductBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
+
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 class ProductAdmin extends Admin
 {
@@ -36,6 +38,20 @@ class ProductAdmin extends Admin
             ->add('status');
         ;
     }
+
+    protected function configureShowFields(ShowMapper $filter)
+    {
+        $filter
+            ->add('parent')
+            ->add('name')
+            ->add('pageTitle')
+            ->add('shortDescription')
+            ->add('description')
+            ->add('price')
+            ->add('productOrder')
+            ->add('status');
+
+    }
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
@@ -45,14 +61,15 @@ class ProductAdmin extends Admin
 //                'route' => array('name' => 'show')
 //            ));
         $listMapper
-            ->add('parent')
-            ->add('name')
+            ->addIdentifier('parent', null, array(
+                'route' => array('name' => 'show')
+            ))
+            ->addIdentifier('name')
             ->add('pageTitle')
             ->add('shortDescription')
             ->add('description')
             ->add('price')
             ->add('productOrder')
             ->add('status');
-        ;
     }
 }

@@ -179,13 +179,14 @@ textarea {
 	width:605px;
 }
 .welcome {
-    padding: 0 0 45px 0;
+    padding: 0 0 10px 0;
 }
 .welcome h3 {
 	margin:0 0 9px 0;
 }
 .welcome p {
 	padding:0 0 11px 0;
+    text-align: justify;
 }
 .welcome img {
 	margin:4px 12px 0 12px;
@@ -193,14 +194,12 @@ textarea {
 
 
 .product__list {
-    font-size: 1px;
-    line-height: 0;
     text-align: justify;
+    font-size: 13px;
+    font-family: Arial,Helvetica,sans-serif;
 }
+.product__content {}
 
-.product__content {
-    text-align: left;
-}
 .product__title {
     text-align: center;
     margin: 0 0 18px;
@@ -210,7 +209,7 @@ textarea {
     display: inline-block;
     width: 270px;
     margin: 0 0 0 15px;
-    padding: 0 0 15px 15px;
+    padding: 15px 0 15px 0px;
 }
 
 .product__link {
@@ -219,7 +218,6 @@ textarea {
 
 .product__link a {
     color: #1f80d9;
-    font-family: Arial,Helvetica,sans-serif;
     line-height: 20px;
     font-weight: normal;
     text-decoration: none;
@@ -229,11 +227,16 @@ textarea {
     margin: 0;
     padding: 0;
     color: #555;
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 13px;
     line-height: 20px;
     height: 140px;
 }
+.product__description {
+    height: 100%;
+}
+.product__description ul {
+
+}
+
 .product__price {
     color: #e96901;
     font-family: Arial,Helvetica,sans-serif;
@@ -244,6 +247,7 @@ textarea {
 .product__price__amount {
     font-size: 28px;
 }
+
 #sidebar {
 	width:300px;
 }
@@ -265,7 +269,18 @@ textarea {
 	color:#333;
 	padding:0 0 0 16px;
 }
+.phone {
+    font-size: 20px;
+    line-height: 40px;
+}
+.phone__code {
+     color: #800404;
+}
+.phone__number {
+    padding: 0 7px;
+    color: #168017;
 
+}
 .advertisement {
 	padding:0 0 13px 0;
 }
@@ -298,3 +313,11 @@ textarea {
     float: left;
     margin: 0 7px 7px 0;
 }
+.about {
+    text-align: justify;
+}
+.contact__table {
+    padding: 15px 0;
+}
+
+

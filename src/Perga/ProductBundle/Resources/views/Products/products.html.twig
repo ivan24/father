@@ -6,13 +6,13 @@
 
         <div class="product__item">
             <div class="product__content">
-                <a class="articles__image" href="{{ path('product_show', { 'id': product.id }) }}">
-                    <img src="{{ asset(product.src) }}" alt="" title="">
-                </a>
                 <h4 class="product__link" >
                     <a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.name }}</a>
                 </h4>
-                <p class="product__info">{{ product.shortDescription|truncate(250) }}</p>
+                <a class="articles__image" href="{{ path('product_show', { 'id': product.id }) }}">
+                    <img src="{{ asset(product.src) }}" alt="" title="">
+                </a>
+                <p class="product__info">{{ product.shortDescription|truncate(250)|raw }}</p>
                 <p class="product__price">
                    Цена: <span class = 'product__price__amount'>{{ product.price }}</span>
                     <span class="product__price__currency">y.e</span>

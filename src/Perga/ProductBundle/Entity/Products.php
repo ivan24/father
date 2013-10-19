@@ -52,7 +52,7 @@ class Products
     /**
      * @var integer
      *
-     * @ORM\Column(name="price", type="integer", nullable=true)
+     * @ORM\Column(name="price", type="float", nullable=true)
      */
     private $price;
 
@@ -71,9 +71,9 @@ class Products
     private $status;
 
     /**
-     * @var \Perga\ProductBundle\Entity\Products
+     * @var \Products
      *
-     * @ORM\ManyToOne(targetEntity="Perga\ProductBundle\Entity\Products")
+     * @ORM\ManyToOne(targetEntity="Products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })
@@ -85,7 +85,7 @@ class Products
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -187,7 +187,7 @@ class Products
     /**
      * Set price
      *
-     * @param integer $price
+     * @param float $price
      * @return Products
      */
     public function setPrice($price)
@@ -200,7 +200,7 @@ class Products
     /**
      * Get price
      *
-     * @return integer
+     * @return float 
      */
     public function getPrice()
     {
@@ -216,14 +216,14 @@ class Products
     public function setProductOrder($productOrder)
     {
         $this->productOrder = $productOrder;
-
+    
         return $this;
     }
 
     /**
      * Get productOrder
      *
-     * @return integer
+     * @return integer 
      */
     public function getProductOrder()
     {
@@ -239,14 +239,14 @@ class Products
     public function setStatus($status)
     {
         $this->status = $status;
-
+    
         return $this;
     }
 
     /**
      * Get status
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getStatus()
     {
@@ -262,14 +262,14 @@ class Products
     public function setParent(\Perga\ProductBundle\Entity\Products $parent = null)
     {
         $this->parent = $parent;
-
+    
         return $this;
     }
 
     /**
      * Get parent
      *
-     * @return \Perga\ProductBundle\Entity\Products
+     * @return \Perga\ProductBundle\Entity\Products 
      */
     public function getParent()
     {

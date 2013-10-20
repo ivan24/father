@@ -11,6 +11,7 @@
     <target name = "prepare">
         <echo msg = "Making directory ./build" />
         <mkdir dir = "./build" />
+        <exec command="php app/console assetic:dump --env=prod --no-debug" logoutput = "true" />
     </target>
 
     <fileset dir = "${project.basedir}" id = "allfiles">

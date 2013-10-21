@@ -23,6 +23,7 @@
         <exclude name=".idea/**"/>
         <exclude name=".git/**"/>
         <exclude name="scripts/**"/>
+        <exclude name="web/bundles/**"/>
         <exclude name="app/config/parameters.yml.dist"/>
         <exclude name="app/config/parameters.yml"/>
         <exclude name="app/config/parameters.yml.conf"/>
@@ -40,6 +41,7 @@
         <chmod file="${buildDir}/app/cache" mode="0777" />
         <mkdir dir = "${buildDir}/app/logs"/>
         <chmod file="${buildDir}/app/logs" mode="0777" />
+        <exec command=" app/console assets:install ${buildDir}/web" logoutput = "true" />
     </target>
 
     <target name = "dist" depends = "copy">

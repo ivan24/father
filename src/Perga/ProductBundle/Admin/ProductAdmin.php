@@ -20,8 +20,8 @@ class ProductAdmin extends Admin
             ->add('parent')
             ->add('name')
             ->add('pageTitle')
-            ->add('shortDescription', null, array('required' => false, 'attr' => array('class' => 'tinymce-sd')))
-            ->add('description', null, array('required' => false, 'attr' => array('class' => 'tinymce-d')))
+            ->add('shortDescription', null, array('attr' => array('class' => 'tinymce-sd')))
+            ->add('description', null, array('attr' => array('class' => 'tinymce-d')))
             ->add('price')
             ->add('productOrder')
             ->add('status');

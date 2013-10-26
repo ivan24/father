@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/contact",name="contact")
+     * @Route("/contact",name="contact", options={"sitemap" = true})
      * @Template()
      */
     public function contactAction($name='')

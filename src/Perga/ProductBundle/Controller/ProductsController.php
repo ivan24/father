@@ -18,7 +18,7 @@ class ProductsController extends Controller
 {
 
      /**
-     * @Route("/",name="front-page")
+     * @Route("/",name="front-page", options={"sitemap" = true})
      * @Template()
      */
     public function indexAction()

@@ -35,8 +35,10 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
+            $output->writeln('<info>Start. Create Soap Client!</info>');
             $client = new \SoapClient("http://www.nbrb.by/Services/ExRates.asmx?wsdl");
             $date = new \DateTime();
+            $output->writeln('<info>Processing Data</info>');
             $serverData = $client->ExRatesDaily(array('onDate' => $date->format('Y-m-d')));
             $xml = new \SimpleXMLElement($serverData->ExRatesDailyResult->any);
             $query = '';
@@ -63,13 +65,13 @@ EOT
                 $em->persist($currency);
             }
             $em->flush();
+            $output->writeln('<info>Currency update successfull</info>');
 
         } catch (\SoapFault  $e) {
-            echo $e->getMessage();
+            $output->writeln(sprintf("<error>%s</error>", $e->getMessage()));
             return;
         } catch (\Exception $e) {
-            print_r(get_class($e));
-            echo $e->getMessage();
+            $output->writeln(sprintf("<error>%s</error>", $e->getMessage()));
             return;
         }
 

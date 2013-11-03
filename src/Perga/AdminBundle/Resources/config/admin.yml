@@ -1,5 +1,20 @@
 parameters:
 services:
+    perga.admin.product.category:
+        class: Perga\AdminBundle\Controller\ProductCategoriesAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Продукты"
+              label: "Категории"
+        arguments:
+            - ~
+            - Perga\ProductBundle\Entity\ProductCategories
+            # by default use - ~ instead of I create my CrudClass
+            - 'PergaAdminBundle:ProductCRUD'
+        calls:
+            - [ setTranslationDomain, [PergaProductBundle]]
+
     perga.admin.product:
         class: Perga\AdminBundle\Controller\ProductAdmin
         tags:
@@ -9,11 +24,27 @@ services:
               label: "Продукты"
         arguments:
             - ~
-            - Perga\ProductBundle\Entity\Products
+            - Perga\ProductBundle\Entity\Product
             # by default use - ~ instead of I create my CrudClass
             - 'PergaAdminBundle:ProductCRUD'
         calls:
             - [ setTranslationDomain, [PergaProductBundle]]
+
+    perga.admin.product.price:
+        class: Perga\AdminBundle\Controller\ProductPriceAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Продукты"
+              label: "Цены"
+        arguments:
+            - ~
+            - Perga\ProductBundle\Entity\ProductPrice
+            # by default use - ~ instead of I create my CrudClass
+            - 'PergaAdminBundle:ProductCRUD'
+        calls:
+            - [ setTranslationDomain, [PergaProductBundle]]
+
     perga.admin.images:
         class: Perga\AdminBundle\Controller\ProductImagesAdmin
         tags:

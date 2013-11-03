@@ -15,7 +15,7 @@ class ProductsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('parent')
+            ->add('category')
             ->add('name')
             ->add('pageTitle')
             ->add('shortDescription')
@@ -31,7 +31,7 @@ class ProductsType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Perga\ProductBundle\Entity\Products'
+            'data_class' => 'Perga\ProductBundle\Entity\Product'
         ));
     }
 

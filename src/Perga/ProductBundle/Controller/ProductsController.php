@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Perga\ProductBundle\Entity\Products;
+use Perga\ProductBundle\Entity\Product;
 use Perga\ProductBundle\Form\ProductsType;
 
 /**
@@ -40,7 +40,7 @@ class ProductsController extends Controller
         /**@var $productModel \Perga\ProductBundle\Services\ProductModel*/
         $productModel = $this->get('perga.model.product');
         $products = $productModel->getProductsByCategoryId($catId);
-        $category = $this->getDoctrine()->getRepository('PergaProductBundle:Products')->find($catId);
+        $category = $this->getDoctrine()->getRepository('PergaProductBundle:Product')->find($catId);
         return array(
             'products' => $products,
             'category' => $category

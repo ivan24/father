@@ -16,7 +16,7 @@ class ProductImagesAdmin extends Admin
     {
         $formMapper
             ->add('src')
-            ->add('product', 'entity', array('class' =>'Perga\ProductBundle\Entity\Products'))
+            ->add('product')
         ;
     }
 

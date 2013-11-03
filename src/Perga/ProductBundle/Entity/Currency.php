@@ -119,4 +119,10 @@ class Currency
     {
         return $this->code;
     }
+
+    function __toString()
+    {
+        return $this->getAbbr();
+    }
+
 }

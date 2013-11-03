@@ -26,5 +26,6 @@ class PergaProductExtension extends Extension
         $loader->load('services.yml');
         $loader->load('admin.yml');
         $loader->load('menu.yml');
+        $loader->load('doctrine_extensions.yml');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Perga\ProductBundle\Admin;
+namespace Perga\AdminBundle\Controller;
 
 use Sonata\AdminBundle\Admin\Admin;
 

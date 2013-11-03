@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             //my bundle
             new Perga\ProductBundle\PergaProductBundle(),
+            new Perga\AdminBundle\PergaAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

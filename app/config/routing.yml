@@ -1,3 +1,8 @@
+perga_admin:
+    resource: "@PergaAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 perga_product:
     resource: "@PergaProductBundle/Controller/"
     type:     annotation

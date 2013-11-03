@@ -1,5 +1,5 @@
 <?php
-namespace Perga\ProductBundle\Controller;
+namespace Perga\AdminBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController;
 

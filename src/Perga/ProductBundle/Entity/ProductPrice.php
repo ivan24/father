@@ -19,7 +19,7 @@ class ProductPrice
     /**
      * @var \Perga\ProductBundle\Entity\Product
      *
-     * @ORM\ManyToOne(targetEntity="Perga\ProductBundle\Entity\Product")
+     * @ORM\ManyToOne(targetEntity="Perga\ProductBundle\Entity\Product", inversedBy="prices")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })

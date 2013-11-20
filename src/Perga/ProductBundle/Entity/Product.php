@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Product
  *
  * @ORM\Table(name="product")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Perga\ProductBundle\Entity\ProductRepository")
  */
 class Product
 {
@@ -92,7 +92,7 @@ class Product
     /**
      * @var \ProductCategories
      *
-     * @ORM\ManyToOne(targetEntity="ProductCategories")
+     * @ORM\ManyToOne(targetEntity="ProductCategories", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;

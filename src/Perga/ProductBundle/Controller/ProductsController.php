@@ -23,9 +23,8 @@ class ProductsController extends Controller
      */
     public function indexAction()
     {
-        /**@var $productModel \Perga\ProductBundle\Services\ProductModel */
-        $productModel = $this->get('perga.model.product');
-        $products = $productModel->getCategoriesWithProducts();
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('PergaProductBundle:Product')->findAllProductsFilteredByCategoryAndProductName();
         return array('products' => $products);
     }
     /**
@@ -49,7 +48,7 @@ class ProductsController extends Controller
     /**
      * Finds and displays a Products entity.
      *
-     * @Route("/product/{id}", name="product_show")
+     * @Route("/product/{slug}", name="product_show")
      * @Method("GET")
      * @Template()
      */

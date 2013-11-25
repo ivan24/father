@@ -17,7 +17,8 @@ class ProductCategoriesAdmin extends Admin
     {
         $formMapper
             ->add('name', null, array('label' => "Имя Категории"))
-            ->add('products', null, array('label' => "Продукты"));
+            ->add('products', null, array('label' => "Продукты", 'required' => false))
+        ;
     }
 
     // Fields to be shown on filter forms

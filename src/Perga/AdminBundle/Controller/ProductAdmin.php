@@ -20,10 +20,8 @@ class ProductAdmin extends Admin
         $formMapper
             ->add('name', null, array('label' => "Имя"))
             ->add('category', null, array('label' => "Категория"))
-            /*            ->add('shortDescription', null, array('attr' => array('class' => 'tinymce-sd')))
-                        ->add('description', null, array('attr' => array('class' => 'tinymce-d')))*/
-            ->add('shortDescription', null, array('label' => "Краткое описание"))
-            ->add('description', null, array('label' => "Подробное описание"))
+            ->add('shortDescription', null, array('label' => "Краткое описание",'attr' => array('class' => 'tinymce-sd')))
+            ->add('description', null, array('label' => "Подробное описание",'attr' => array('class' => 'tinymce-d')))
             ->add('metaKeyword', null, array('label' => "meta keyword"))
             ->add('metaDescription', null, array('label' => "meta description"))
             ->add(

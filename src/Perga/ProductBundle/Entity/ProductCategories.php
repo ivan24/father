@@ -95,11 +95,8 @@ class ProductCategories
 
     public function addProduct(\Perga\ProductBundle\Entity\Product $product)
     {
-
-
         $product->setCategory($this);
         $this->products->add($product);
-    
         return $this;
     }
 

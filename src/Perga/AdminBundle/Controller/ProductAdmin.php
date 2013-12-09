@@ -47,8 +47,6 @@ class ProductAdmin extends Admin
         $datagridMapper
             ->add('category', null, array('label' => "Категория"))
             ->add('name', null, array('label' => "Имя"))
-            //  ->add('prices')
-            ->add('productOrder', null, array('label' => "Порядковый номер продукт"))
             ->add('status', null, array('label' => "Наличие"));
     }
 

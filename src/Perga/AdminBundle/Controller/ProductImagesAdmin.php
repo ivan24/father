@@ -16,8 +16,7 @@ class ProductImagesAdmin extends Admin
     {
         $formMapper
             ->add('src')
-            ->add('product')
-        ;
+            ->add('product');
     }
 
     // Fields to be shown on filter forms
@@ -25,15 +24,17 @@ class ProductImagesAdmin extends Admin
     {
         $datagridMapper
             ->add('src')
-            ->add('product')
-        ;
+            ->add('product');
     }
+
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('src')
-            ->addIdentifier('product')
-        ;
+            ->addIdentifier('src', 'file', array(
+                'template' => 'PergaAdminBundle:Image:showImage.html.twig'
+            ))
+           // ->addIdentifier('src')
+            ->addIdentifier('product');
     }
 }

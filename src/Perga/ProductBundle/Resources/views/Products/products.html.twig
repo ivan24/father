@@ -10,9 +10,9 @@
                     <a href="{{ path('product_show', { 'slug': product.slug }) }}">{{ name }}</a>
                 </h4>
                 <a class="articles__image" href="{{ path('product_show', { 'slug': product.slug }) }}">
-                    <img src="{{ asset(product.src) }}" alt="" title="">
+                    <img src="{{ asset(product.src) }}" src="{{ asset(product.src) }}" alt="{{name }}" title="{{ key }} - {{ name }}">
                 </a>
-                <div class="product__info">{{ product.shortDescription|truncate(250)|raw }}</div>
+                <div class="product__info">{{ product.shortDescription|truncate(255)|raw}}</div>
                 {% for price in product.prices %}
                     <p class="product__price">
                         Цена: <span class = 'product__price__amount'>{{ price.price}}</span>

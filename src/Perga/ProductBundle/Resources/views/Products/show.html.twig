@@ -5,6 +5,7 @@
 
 {% block welcome %}{% endblock welcome %}
 {% block products %}
+
     <div class="product__title">
         <h2 class="text-left">{{ product.name }}</h2>
     </div>
@@ -14,9 +15,6 @@
             {{ product.description|raw }}
         </p>
         <div class="cl">&nbsp;</div>
-        <p class="product__price">
-            Цена: <span class = 'product__price__amount dev-product-price'>{{ product.price }}</span>
-            <span class="product__price__currency dev-product-currence">y.e</span>
-        </p>
+        {% include 'PergaProductBundle:Products:product_price.html.twig' with {'product.prices': product.prices} %}
     </div>
 {% endblock products %}

@@ -38,7 +38,6 @@ class ProductsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository('PergaProductBundle:Product')->findProductBySlug($slug);
-         //var_dump($product);die;
         return array(
             'product'=> $product,
         );

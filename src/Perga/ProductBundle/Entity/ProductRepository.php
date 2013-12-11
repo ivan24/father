@@ -10,7 +10,15 @@ class ProductRepository extends EntityRepository
     {
         $query = $this->getEntityManager()
             ->createQuery('
-                SELECT category.name as catName, product.slug, product.shortDescription, product.name, price.value,price.price, currency.abbr, img.src
+                SELECT
+                  category.name as catName,
+                  product.slug,
+                  product.shortDescription,
+                  product.name,
+                  price.value,
+                  price.price,
+                  currency.abbr,
+                  img.src
                 FROM PergaProductBundle:Product product
                 JOIN product.category category
                 LEFT OUTER JOIN PergaProductBundle:ProductPrice price WITH price.product = product.id
@@ -43,7 +51,6 @@ class ProductRepository extends EntityRepository
                 );
 
             }
-           // var_export($result);die;
             return $result;
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
@@ -52,6 +59,7 @@ class ProductRepository extends EntityRepository
 
     public function findProductBySlug($slug)
     {
+        //todo how I make this better
         $query = $this->getEntityManager()->createQuery('
                 SELECT
                   product.name,
@@ -67,14 +75,35 @@ class ProductRepository extends EntityRepository
                 LEFT JOIN PergaProductBundle:Currency currency WITH currency.id = price.currency
                 LEFT JOIN PergaProductBundle:ProductImages img WITH img.product = product.id
                 WHERE product.slug = :slug
-             ')->setParameter('slug', $slug)
-            ->setMaxResults(1);
+             ')->setParameter('slug', $slug);
 
         try {
-            $product = $query->getSingleResult();
+            $result = array();
+            $rowResult = $query->getResult();
+            foreach ($rowResult as $product) {
+                if (!isset($result[$product['name']])) {
+                    $result[$product['name']] = array(
+                        'name'=> $product['name'],
+                        'metaKeyword' => $product['metaKeyword'],
+                        'metaDescription' => $product['metaDescription'],
+                        'description' => $product['description'],
+                        'src' => $product['src'],
+                        'prices' => array(),
+                    );
+                }
+
+                $result[$product['name']]['prices'][] = array(
+                    'value' => $product['value'],
+                    'price' => $product['price'],
+                    'abbr' => $product['abbr'],
+
+                );
+            }
+            $result = array_shift($result);
+
         } catch (\Doctrine\Orm\NoResultException $e) {
-            $product = array();
+            $result = array();
         }
-        return $product;
+        return $result;
     }
 } 

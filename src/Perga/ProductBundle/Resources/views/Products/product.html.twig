@@ -3,12 +3,9 @@
 </div>
 <div class="product__content">
     <p class="product__info">
-        <img class="img-float" src="{{ asset(product.src) }}" src="{{ asset(product.src) }}" alt="{{ product.name }}" title="продукция с частной пасеки: {{ product.name }}>
+        <img class="img-float" src="{{ asset(product.src) }}" src="{{ asset(product.src) }}" alt="{{ product.name }}" title="продукция с частной пасеки: {{ product.name }}">
         {{ product.description }}
     </p>
-    <p class="product__price">
-        Цена: <span class = 'product__price__amount'>{{ product.price }}</span>
-        <span class="product__price__currency">y.e</span>
-    </p>
+    {% include 'PergaProductBundle:Products:product_price.html.twig' with {'product.prices': product.prices} %}
 </div>
 <div class="cl">&nbsp;</div>

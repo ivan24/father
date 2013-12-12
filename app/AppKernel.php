@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
             //my bundle
             new Perga\ProductBundle\PergaProductBundle(),
             new Perga\AdminBundle\PergaAdminBundle(),

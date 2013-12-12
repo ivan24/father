@@ -48,7 +48,18 @@
     </div>
     <div id="sidebar" class="right">
         {% block sidebar %}
-            {% include "PergaProductBundle:Products:sidebar.html.twig" %}
+            <div class="info">
+                <h3>Информация</h3>
+                <p>
+                    Пасека <strong>"Мядовы маёнтак"</strong> находится в реестре предприятий таможенного союза</p>
+                <h3>Контактные телефоны</h3>
+                <p class = "phone">
+                    {% include "PergaProductBundle:Products:phone.html.twig" %}
+                {% block productList %}
+                <h3>Продукция</h3>
+                {{ render(controller('PergaProductBundle:Products:list')) }}
+            {% endblock productList %}
+            </div>
         {% endblock sidebar %}
     </div>
     <div class="cl">&nbsp;</div>

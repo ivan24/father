@@ -18,3 +18,10 @@
         {% include 'PergaProductBundle:Products:product_price.html.twig' with {'product.prices': product.prices} %}
     </div>
 {% endblock products %}
+
+{% block productList %}
+  <h3>Продукция</h3>
+  {{ render(controller('PergaProductBundle:Products:list', {'exclude': product.id})) }}
+{% endblock productList %}
+
+

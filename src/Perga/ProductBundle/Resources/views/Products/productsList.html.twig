@@ -1,0 +1,5 @@
+<ul class="sidebar__product__list" >
+    {% for product in products %}
+        <li><a href="{{ path('product-show', { 'slug': product.slug }) }}">{{ product.name }}</a></li>
+    {% endfor %}
+</ul>

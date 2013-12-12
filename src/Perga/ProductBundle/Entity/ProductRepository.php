@@ -53,7 +53,7 @@ class ProductRepository extends EntityRepository
             }
             return $result;
         } catch (\Doctrine\ORM\NoResultException $e) {
-            return null;
+            return array();
         }
     }
 
@@ -62,6 +62,7 @@ class ProductRepository extends EntityRepository
         //todo how I make this better
         $query = $this->getEntityManager()->createQuery('
                 SELECT
+                  product.id,
                   product.name,
                   product.metaKeyword,
                   product.metaDescription,
@@ -83,6 +84,7 @@ class ProductRepository extends EntityRepository
             foreach ($rowResult as $product) {
                 if (!isset($result[$product['name']])) {
                     $result[$product['name']] = array(
+                        'id'=> $product['id'],
                         'name'=> $product['name'],
                         'metaKeyword' => $product['metaKeyword'],
                         'metaDescription' => $product['metaDescription'],
@@ -104,6 +106,27 @@ class ProductRepository extends EntityRepository
         } catch (\Doctrine\Orm\NoResultException $e) {
             $result = array();
         }
+        return $result;
+    }
+
+    public function findWhereNot($exclude = null)
+    {
+        if(is_null($exclude)) {
+            $exclude = "";
+        }
+        $qb = $this->getEntityManager()->createQuery('
+                SELECT
+                  product.slug,
+                  product.name
+                FROM PergaProductBundle:Product product
+                WHERE product.id <> :id')
+            ->setParameter('id', $exclude);
+        try {
+            $result = $qb->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            $result = array();
+        }
+
         return $result;
     }
 } 

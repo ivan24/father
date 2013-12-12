@@ -1,0 +1,14 @@
+front-page:
+    path:      /
+    defaults:  { _controller: PergaProductBundle:Products:index}
+    methods:   [GET]
+
+product-show:
+    path:      /product/{slug}
+    defaults:  { _controller: PergaProductBundle:Products:show}
+    methods:   [GET]
+
+contact:
+     path:      /contact
+     defaults:  {_controller: PergaProductBundle:Contact:index }
+     methods:   [GET]

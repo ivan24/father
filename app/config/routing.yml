@@ -4,9 +4,7 @@ perga_admin:
     prefix:   /
 
 perga_product:
-    resource: "@PergaProductBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    resource: "@PergaProductBundle/Resources/config/routing/routing.yml"
 
 #sonata-admin bundle
 admin:

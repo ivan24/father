@@ -249,6 +249,21 @@ textarea {
     font-size: 15px;
     padding-top: 4px;
 }
+.sidebar__product__list {
+    list-style-type: none;
+    margin: 0;
+}
+.sidebar__product__list li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    line-height: 20px;
+}
+.sidebar__product__list li a {
+    text-decoration: none;
+    height: 23px;
+    display: block;
+    border: none;
+}
 
 #sidebar {
 	width:300px;

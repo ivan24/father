@@ -1,9 +1,12 @@
 {% extends 'PergaProductBundle::layout.html.twig' %}
 {% block title %}Частная пасека. Адрес и телефоны.{% endblock %}
+{% block metaKeywords %}пасека, частая пасека, мед с частной пасеки{% endblock metaKeywords %}
+{% block metaDescription %} Пасека 'Мядовы маёнтак' контакты. Адреса и телефоны.{% endblock metaDescription %}
 {% block meta %}
     {{ parent() }}
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 {% endblock meta %}
+
 {% block slider %}
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -36,11 +39,11 @@
     <div class="container-fluid">
         <div class="row-fluid about">
             <div class="span12">
-                <h3>О компании</h3>
+                <h3>Пасека "Мядовы маёнтак"</h3>
                 <p>
                     <img title ="Пчеловод за работой. Получение маточного молочка." alt= "о пасеке" src="{{ asset('bundles/pergaproduct/images/contact/author/bee-keeper.jpg') }}" class="img-float">
                     Я Орешков Сергей Васильевич - уже больше 25 лет занимаюсь пчеловодсвом. Моя основная пасека находится в
-                    д. Новоспаск Сморгонского района, Гродненской  области в одном из наиболее экологически чистых
+                    д. Новоспасск Сморгонского района, Гродненской  области в одном из наиболее экологически чистых
                     мест Республики Беларусь. Кроме этого есть несколько кочующих пасек. Место положение которых меняется.
                     Часто это опушка леса или поле гречихи. Такая практика позволяет мне собирать чудесный, душистый мёд.
                 </p>
@@ -73,7 +76,7 @@
                         </tr>
                         <tr>
                             <td class="span1"><strong>Адрес</strong></td>
-                            <td>Гродненская область, Сморгонский район, д.Новоспаск д.18</td>
+                            <td>Гродненская область, Сморгонский район, д.Новоспасск д.18</td>
                         </tr>
                     </tbody>
                 </table>

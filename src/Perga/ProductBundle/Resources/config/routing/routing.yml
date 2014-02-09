@@ -12,3 +12,9 @@ contact:
      path:      /contact
      defaults:  {_controller: PergaProductBundle:Contact:index }
      methods:   [GET]
+
+#sitemap:
+#    path: /sitemap.{_format}
+#    defaults: {_controller: PergaProductBundle:SiteMaps:siteMap, _format: xml }
+#    requirements:
+#          _format: xml

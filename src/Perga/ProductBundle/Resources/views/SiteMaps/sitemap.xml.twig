@@ -3,8 +3,8 @@
     {% for url in urls %}
         <url>{# check if hostname is not alreay in url#}
             <loc>
-                {% if url.loc|replace({domain:''}) == url.loc %}
-                    http://{{ domain }}{{ url.loc }}
+                {% if url.loc|replace({hostname:''}) == url.loc %}
+                    http://{{ hostname }}{{ url.loc }}
                 {% else %}{{ url.loc }}
                 {% endif %}
             </loc>

@@ -90,7 +90,7 @@ class Product
     private $status;
 
     /**
-     * @var \ProductCategories
+     * @var ProductCategories
      *
      * @ORM\ManyToOne(targetEntity="ProductCategories", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
@@ -299,10 +299,10 @@ class Product
     /**
      * Add price
      *
-     * @param \Perga\ProductBundle\Entity\ProductPrice $price
+     * @param ProductPrice $price
      * @return Product
      */
-    public function addPrice(\Perga\ProductBundle\Entity\ProductPrice $price)
+    public function addPrice(ProductPrice $price)
     {
         $price->setProduct($this);
 
@@ -314,9 +314,9 @@ class Product
     /**
      * Remove price
      *
-     * @param \Perga\ProductBundle\Entity\ProductPrice $price
+     * @param ProductPrice $price
      */
-    public function removePrice(\Perga\ProductBundle\Entity\ProductPrice $price)
+    public function removePrice(ProductPrice $price)
     {
         $this->prices->removeElement($price);
     }
@@ -334,10 +334,10 @@ class Product
     /**
      * Set category
      *
-     * @param \Perga\ProductBundle\Entity\ProductCategories $category
+     * @param ProductCategories $category
      * @return Product
      */
-    public function setCategory(\Perga\ProductBundle\Entity\ProductCategories $category = null)
+    public function setCategory(ProductCategories $category = null)
     {
         $this->category = $category;
 
@@ -347,7 +347,7 @@ class Product
     /**
      * Get category
      *
-     * @return \Perga\ProductBundle\Entity\ProductCategories
+     * @return ProductCategories
      */
     public function getCategory()
     {

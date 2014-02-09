@@ -14,6 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand as Command;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Perga\ProductBundle\Entity\Product;
 
 class GenerateSiteXmlCommand extends Command
 {
@@ -63,31 +64,37 @@ EOT
         if ($input->getOption('force') && $fs->exists($filePath)) {
             $output->writeln('Rewrite existing file.');
         }
-        $routeCollection = $router->getRouteCollection();
-        $items = array();
-        $date = new \DateTime();
-        $lastMod = $date->format('Y-m-d');
+
+        $urls = array();
+        $staticPages = array();
+        $staticPages[] = $router->generate('front-page');
+        $staticPages[] = $router->generate('contact');
         $domain = $this->getContainer()->getParameter('domain');
-
-        foreach ($routeCollection as $routeName => $route) {
-            if($route->getOption('sitemap')) {
-                $items[] = array(
-                    'loc' => str_replace(
-                        'localhost',
-                        $domain,
-                        $router->generate(
-                            $routeName,
-                            array(),
-                            true
-                        )
-                    ),
-                    'lastmod' => $lastMod,
-                );
-            }
-
+        $products = $this->getContainer()->get('doctrine')->getManager()->getRepository('PergaProductBundle:Product')->findAll();
+        foreach ($staticPages as $page) {
+            $urls[] = $this->generateXMLItem($page);
         }
-        $content = $twig->render(self::SITEMAP_TEMPLATE, array('items' => $items));
+
+        /**@var $product Product */
+        foreach ($products as $product) {
+            $urls[] = $this->generateXMLItem(
+                $router->generate('product-show', array('slug' => $product->getSlug())),
+                'monthly',
+                '0.5'
+            );
+        }
+        $content = $twig->render(self::SITEMAP_TEMPLATE, array('urls' => $urls, 'domain' => $domain));
         $fs->dumpFile($filePath, $content, 0444);
         $output->writeln("<info>sitemap.xml successfully created</info>");
+    }
+
+    protected function  generateXMLItem($url, $changefreq = 'monthly', $priority = '1.0')
+    {
+        $date = new \DateTime();
+        return array(
+            'loc' => $url,
+            'lastmod' => $date->format('Y-m-d'),
+            'changefreq' => $changefreq,
+            'priority' => $priority);
     }
 } 

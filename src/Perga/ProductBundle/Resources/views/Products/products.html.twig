@@ -3,15 +3,15 @@
         <h2>{{ key }}</h2>
     </div>
     {% for name, product in catProducts %}
-        <div  itemscope itemtype="http://schema.org/Product" class="product__item">
+        <div itemscope itemtype="http://schema.org/Product" class="product__item">
             <div class="product__content">
-                <h4 itemprop="name" class="product__link" >
-                    <a href="{{ path('product-show', { 'slug': product.slug }) }}">{{ name }}</a>
+                <h4  class="product__link" >
+                    <a itemprop="url" href="{{ path('product-show', { 'slug': product.slug }) }}"><span itemprop="name">{{ name }}</span></a>
                 </h4>
                 <a class="articles__image" href="{{ path('product-show', { 'slug': product.slug }) }}">
-                    <img  itemprop="image" src="{{ asset(product.src) }}" src="{{ asset(product.src) }}" alt="{{name }}" title="{{ key }} - {{ name }}">
+                    <img itemprop="image" src="{{ asset(product.src) }}" alt="{{name }}" title="{{ key }} - {{ name }}">
                 </a>
-                <div  itemprop="description" class="product__info">
+                <div class="product__info" itemprop="description">
                     {{ product.shortDescription|truncate(255)|raw}}
                 </div>
                  {% include 'PergaProductBundle:Products:product_price.html.twig' with {'product.prices': product.prices} %}

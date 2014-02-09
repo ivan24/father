@@ -5,18 +5,21 @@
 
 {% block welcome %}{% endblock welcome %}
 {% block products %}
-
+<div itemscope itemtype="http://schema.org/Product">
     <div class="product__title">
-        <h1>{{ product.name }}</h1>
+        <h1 itemprop="name">{{ product.name }}</h1>
     </div>
     <div class="product__content">
-        <p class="product__description">
-            <img class="img-float" src="{{ asset(product.src) }}" alt="{{ product.name }}" title="продукция с частной пасеки: {{ product.name }}">
+        <div class="product__description">
+            <img itemprop="image" class="img-float" src="{{ asset(product.src) }}"
+                 alt="{{ product.name }}" title="продукция с частной пасеки: {{ product.name }}">
             {{ product.description|raw }}
-        </p>
+        </div>
         <div class="cl">&nbsp;</div>
         {% include 'PergaProductBundle:Products:product_price.html.twig' with {'product.prices': product.prices} %}
     </div>
+</div>
+
 {% endblock products %}
 
 {% block productList %}

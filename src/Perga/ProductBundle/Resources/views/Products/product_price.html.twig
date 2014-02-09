@@ -1,15 +1,12 @@
-<ul class = "product__price">
-    <li>
-        Цена:
-        <ul>
-            {% for price in product.prices %}
-                <li  itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
-                    <span class = 'product__price__amount'>{{ price.price}}</span>
-                    <span class="product__price__currency">{{ price.abbr }}</span> {{price.value }}
-                </li>
-            {% endfor %}
-        </ul>
-    </li>
-</ul>
-
+<div class = "product-price">
+    <h4 class = "product-price__label"> Цена:</h4>
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        {% for price in product.prices %}
+            <div class = "product-price__item"  >
+                <span itemprop = "price">{{ price.price }} {{ price.abbr }}</span>
+                <span class = "product-price__item-value">{{price.value }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 

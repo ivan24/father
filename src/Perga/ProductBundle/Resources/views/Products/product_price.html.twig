@@ -3,7 +3,7 @@
         Цена:
         <ul>
             {% for price in product.prices %}
-                <li>
+                <li  itemprop="offers" itemscope itemtype="http://schema.org/Offer" >
                     <span class = 'product__price__amount'>{{ price.price}}</span>
                     <span class="product__price__currency">{{ price.abbr }}</span> {{price.value }}
                 </li>

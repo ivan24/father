@@ -55,9 +55,12 @@
 {% endblock body %}
     {% block javascripts %}
         {% javascripts
-            '@PergaProductBundle/Resources/public/js/jquery-1.10.2.js'
+            '@PergaProductBundle/Resources/public/js/libs/jquery/jquery-1.11.0.js'
             '@PergaProductBundle/Resources/public/js/yandex_metrika.js'
-            '@PergaProductBundle/Resources/public/js/bootstrap.js' filter='?yui_js' %}
+            '@PergaProductBundle/Resources/public/js/libs/bootstrap/bootstrap.js'
+            '@PergaProductBundle/Resources/public/js/libs/angular/angular.min.js'
+            '@PergaProductBundle/Resources/public/js/libs/angular/angular-animate.min.js'
+            '@PergaProductBundle/Resources/public/js/libs/angular/angular-touch.min.js' filter='?yui_js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock javascripts %}

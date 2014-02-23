@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
             //my bundle
             new Perga\ProductBundle\PergaProductBundle(),
             new Perga\AdminBundle\PergaAdminBundle(),
